@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- link表示连接，连接一个外部的资源 -->
+    <!-- rel="shortcut icon" rel是关联（relation）的意思  shortcut icon表示关联的是一个小图标 -->
+    <!-- type="image/x-icon"  表示是一个图片形式的小图标 -->
+    <!-- href="http://img1.kaixin001.com.cn/i/favicon.ico" 表示图标的地址 -->
+    <link href="http://img1.kaixin001.com.cn/i/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <title>开心网</title>
+</head>
+<body>
+    <!-- div是一个没有任何语义的容器，通常是配合CSS来布局使用的，DIV+CSS -->
+    <!-- 我们把我们要实现的某一块内容放到一个div中，方便后面使用CSS进行布局 -->
+    <!-- class="header" 表示给div起名字 也是配合CSS进行布局的 -->
+    <!-- 网站的头部start -->
+    <div class="header">
+        网站的头部
+    </div>
+    <!-- 网站的头部end -->
+
+    <!-- 网站的主体内容 start -->
+    <div class="wraper">
+        <!-- main就表示中间区域的主体内容 -->
+        <div class="main">
+            <div class="left">
+                <!-- 写表单注册 -->
+                <h3>十秒加入开心网，找到全部好友</h3>
+                <p>
+                    <!-- label有一个好处： label for id -->
+                    <label for="text">手机号码：</label>
+                    <input id="text" type="text">
+                </p>
+                <p>
+                    <label for="pwd">创建密码：</label>
+                    <input id="pwd" type="password">
+                </p>
+                <p>
+                    <label for="name">真实姓名：</label>
+                    <input id="name" type="text">
+                </p>
+                <p>
+                    <label for="num">身份证号：</label>
+                    <input id="num" type="number">
+                </p>
+                <p>
+                    性别：
+                    <input type="radio" id="man" name="sex"> <label for="man">男</label>
+                    <input type="radio" id="woman" name="sex"> <label for="woman">女</label>
+                </p>
+                <p>
+                    生日：
+                    <select>
+                        <option value="">请选择</option>
+                        <option value="">1990</option>
+                        <option value="">1991</option>
+                        <option value="">1992</option>
+                        <option value="">1993</option>
+                        <option value="">1994</option>
+                    </select> 年
+                    <select>
+                        <option value="">--</option>
+                        <option value="">01</option>
+                        <option value="">02</option>
+                        <option value="">03</option>
+                        <option value="">04</option>
+                        <option value="">05</option>
+                    </select> 月
+                    <select>
+                        <option value="">--</option>
+                        <option value="">01</option>
+                        <option value="">02</option>
+                        <option value="">03</option>
+                        <option value="">04</option>
+                        <option value="">05</option>
+                    </select> 日
+                </p>
+                <p>
+                    我现在：
+                    <input type="radio" id="work" name="now"> <label for="work">在工作</label>
+                    <input type="radio" id="study" name="now"> <label for="study">在学习</label>
+                    <input type="radio" id="other" name="now"> <label for="other">其它</label>
+                </p>
+                <p>
+                    居住地：
+                    <select>
+                        <option value="">北京</option>
+                        <option value="">上海</option>
+                    </select> 
+                </p>
+                <p>
+                    <input type="checkbox"> 同意 <a href="xxx">开心网服务条款</a>
+                </p>
+                <p>
+                    <input type="image" src="./imgs/register.png">
+                </p>
+            </div>
+            <div class="right">
+                <!-- 客户端下载 -->
+            </div>
+        </div>
+        <!-- 网站的底部 start -->
+        <div class="footer">
+            网站的底部 
+        </div>
+        <!-- 网站的底部 end -->
+    </div>
+    <!-- 网站的主体内容 end -->
+
+    <!-- 
+        div是男标签还是女标签？
+     -->
+</body>
+</html>

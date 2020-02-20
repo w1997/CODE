@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单与表单元素</title>
+</head>
+<body>
+    <!-- form表示表单  action="" 数据要提交的地方 -->
+    <!-- action="http://www.baidu.com" 表示把数据提交到百度 -->
+    <!-- 默认创建出来的form表示，宽度是父元素的100%，高度是0， -->
+    <!-- 可以通过表单元素把表单的高度给撑起来 -->
+    <!-- 每一个标签默认情况情况下，都有外边距和内边距 -->
+    <form action="">
+        <!-- 标签分两类：男标签，女标签  input是女标签，可以并排显示 -->
+        <p>姓名：<input type="text"></p>
+        <p>密码：<input type="password"></p>
+        <!-- 对于radio单选框来说，如果想二选一，需要指定name是相同值 -->
+        <p>性别：<input name="sex" type="radio">男 <input name="sex" type="radio">女</p>
+        <!-- checkbox表示复选框（多选框） -->
+        <p>兴趣：
+            <input type="checkbox">篮球 
+            <input type="checkbox">足球
+            <input type="checkbox">双色球 
+        </p>
+        <p>
+            请选择你的头像：
+            <input type="file">
+        </p>
+        <p>
+            <!-- reset按钮现在基本上没人用 -->
+            <input type="reset" value="重写（重置）">
+
+            <!-- value="注册"表示提交按钮上面的文字 -->
+            <!-- submit表示提交，所谓的提交就是把填写的数据扔给服务器 -->
+            <input type="submit" value="注册">
+        </p>
+        <p>
+            <input type="image" src="./imgs/btn.png">
+        </p>
+        <p>
+            <!-- type="button"是一个普通的按钮 -->
+            <input type="button" value="注册">
+        </p>
+    </form>
+    <!-- h1标签是男标签 -->
+    <h1>A</h1>
+    <h1>B</h1>
+    <h1>C</h1>
+</body>
+</html>

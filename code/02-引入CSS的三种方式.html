@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引入CSS的三种方式</title>
+    <style>
+        /* 内部写法 */
+        /* 设置h1的样式，CSS提供了选择器可以选中HTML标签 */
+        /* h1表示选中body中所有的h1，这里的h1叫标签选择器  */
+        h1{
+            /* color是css中属性 */
+            color: red;
+        }
+        .box{
+            background-color: skyblue;
+        }
+    </style>
+    <!-- 通过link标签，来引入外部的CSS -->
+    <!-- rel表示相关联是样式表 href指定css文件的路径 -->
+    <link rel="stylesheet" href="./out.css">
+</head>
+<body>
+    <!-- 行内写法：把CSS代码当作开始标签中style属性的属性值 -->
+    <!-- <h1 style="color: red;">Hello CSS~</h1> -->
+
+
+    <!-- title="xxx"叫HTML中的属性 -->
+    <!-- <h1 title="xxx" class="box">Hello CSS~</h1>
+    <h1 title="xxx">Hello CSS~</h1>
+    <p class="box">这是一个p标签</p> -->
+
+    <!-- 外部写法 -->
+    <div class="item">
+    </div>
+</body>
+</html>
+<!-- 
+    写CSS代码有三个地方可以写：
+        1）行内写法，直接把CSS代码当作标签的属性，写在开始标签中，如下：
+            <h1 style="color: red;">Hello CSS~</h1>
+            每一个标签都有一个属性，叫style，它的属性值就是CSS代码。
+        2）内部写法，把CSS代码写在style标签中。通常会把style标签放到head标签中。
+            在学习时，为了方便，通常使用内部写法，项目中，一般不用。
+        3）外部写法
+            创建一个CSS文件，在HTML中通过link标签引入
+            在真实项目中，CSS通常也会放到CSS文件中，通过link标签引入
+
+    CSS中的选择器：
+        1）标签选择器 选中页面中所有同类型的标签
+        2）CLASS选择器  先给标签起一个CLASS的名字，通过.class来选中
+ -->

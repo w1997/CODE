@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动小案例</title>
+    <style>
+        /* 初始化样式 */
+        *{margin: 0; padding: 0;}
+        ul{list-style-type: none;}
+        body{font: normal normal 16px/1.5 "宋体";}
+        h1,h2,h3{font-weight: normal;}
+        a{text-decoration: none; color: #4d4d4d;}
+        .mb33{margin-bottom: 33px;}
+
+        /* 常用样式 */
+        .w960{ width: 960px; margin-left: auto; margin-right: auto;}
+        .fl{float: left;}
+        .fr{float: right;}
+
+        /* 主要业务区域样式=========================== */
+        .business{
+            /* border: 1px solid red; */
+            margin-top: 60px;
+        }
+        .business h3{
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            /* border: 1px solid red; */
+        }
+        .business ul{
+            margin-top: 50px;
+            height: 310px;
+            /* border: 1px solid red; */
+            font-size: 0;
+        }
+        .business ul li{
+            /* float: left; */
+            display: inline-block;
+            vertical-align: top;
+            font-size: 16px;
+            /* 计算每一个li的宽度  960  20*3  60  900/4  225 */
+            width: 225px;
+            /* border: 1px solid red; */
+            margin-right: 20px;
+        }
+        .business ul li.last{
+            margin-right: 0;
+        }
+        .business ul h4{
+            margin-top: 26px;
+            color: #e75255;
+        }
+        .business p{
+            font-size: 14px; 
+            line-height: 2;
+            color: #9f9f9f;
+        }
+        .business a{
+            display: block;
+            width: 104px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: #4b4b4b;
+            color: #fff;
+            margin-top: 10px;
+        }
+
+
+      
+      
+    </style>
+</head>
+<body>
+     <!-- 网站整体 start -->
+     <div class="wraper">
+         <!-- 主要业务 start  -->
+         <div class="business w960">
+            <h3>主要业务/PRODUCTS SERVICES</h3>
+            <ul>
+                <li>
+                    <img src="../images/business1.png" alt="">
+                    <h4>投资业务</h4>
+                    <p>证券投资业务，指银行购买有价证券的活动。</p>
+                    <a href="#">立即咨询</a>
+              
+                <li>
+                    <img src="../images/business2.png" alt="">
+                    <h4>投资业务</h4>
+                    <p>证券投资业务，指银行购买有价证券的活动。</p>
+                    <a href="#">立即咨询</a>
+                
+                <li>
+                    <img src="../images/business3.png" alt="">
+                    <h4>投资业务</h4>
+                    <p>证券投资业务，指银行购买有价证券的活动。</p>
+                    <a href="#">立即咨询</a>
+                
+                <li class="last">
+                    <img src="../images/business4.png" alt="">
+                    <h4>投资业务</h4>
+                    <p>证券投资业务，指银行购买有价证券的活动。</p>
+                    <a href="#">立即咨询</a>
+                
+            </ul>
+         </div>
+         <!-- 主要业务 end  -->
+
+    </div>
+    <!-- 网站整体 end -->
+</body>
+<ml>

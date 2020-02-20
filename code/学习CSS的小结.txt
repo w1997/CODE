@@ -1,0 +1,156 @@
+字体 和 文本 区别？
+    答：大量的字体就构成了文本。
+
+    对于文本的设置，常用的属性如下：
+        text-indent  设置首行空两格   
+        text-align  设置文本对齐方式  
+        text-decoration 设置文本的修饰线
+        line-height  设置文本的行高
+
+    text-decoration：
+        设置文本的修饰线
+        underline  下划线
+        overline  上划线  基本上没用
+        line-throuth  删除线  
+        none 没有修饰线
+
+        注意的细节：
+            1）a标签默认就有下划线，通常在页面中会去掉a标签默认的下划线，当鼠标放上去时，添加下划线，并且改变它的颜色。
+            2）对于line-throuth 通常会用到电商网站中的原价上。
+
+    text-indent：（不能给span设置）
+        indent是缩进的意思，表示文本缩进。 首行空两格。
+        em:是一个单位，表示一个汉字的高度，汉字是正方形，em也可以表示一个汉字的宽度。
+    text-align:设置文本的对齐方式。常用属性如下：
+        left 左对齐（默认值）
+        center 居中（水平居中）；可以通过设置line-height的值与height的值相等，让文本垂直居中。
+        right 右对齐
+        justify 两端对齐只对英文有效
+        注意细节：
+            1）text-indent可以设置负值，向另一个方向缩进。
+            2）对于网站的Logo，通常会写文本，然后把文本设置text-indent:-1000px  目的就是让它隐藏掉。
+CSS中的层叠性：
+    大部分网站中都是对body设置font属性？为什么？
+        答：CSS中的属性，有一部分是有继承性，对于父元素设置了这个属性，子元素也会起作用。
+
+    是不是所有的CSS属性都有继承性？
+    答：不是的  body  div  不可能说每一个属性都有继承性。如果都有那么肯定就乱。
+
+    那些CSS属性有继承性呢？
+    答：关于字体的设置和关于文本的设置有继承性。其它的CSS属性是没有继承性的。
+
+    具有继承性的属性如下：
+        font-family
+        font-size
+        font-style
+        font-weight
+        font
+        text-decoration
+        text-align
+        text-indent
+        line-height
+        color
+
+    经典应用：
+        1）对于body设置字体相关的属性。
+    CSS中的层叠性：
+        可以对一个标签，通过不同的方式，设置多种样式，哪一个样式起作用，这就是层叠性所研究的内容。
+
+    结论：
+        1）行内样式 > 内部样式    行内样式 > 外部样式    内部样式 = 外部样式（就近原则）
+        2）ID > CLASS > P
+        3）自身有的样式 > 继承的样式 
+        4）通过特殊值进行比较  ID:100   CLASS:10   P:1   把钱加一块，谁多就以谁为准，如果一样多，就近原则
+        5）可以使用!important 改变优先级。用的不多。了解就OK。
+盒子模型
+     一个HTML标签就是一个盒子。HTML中所有的盒子都是矩形的。
+
+    一个网站就是一个个盒子堆起来的。一个盒子模型有如下几个部分组成：
+        盒子中内容区域
+        盒子的内填充区域
+        盒子的边框区域
+        盒子的外填充区域
+        盒子的背景区域
+
+    通过6个属性来设置一个盒子：
+        width  表示内容区域的宽度
+        height  表示内容区域的高度
+        margin
+        padding  padding: 50px;  表示四个方向的padding都是50px
+        border
+        background
+        研究盒子模型就是研究上面的6大属性。
+
+    width 和 height：
+        表示盒子内容的宽度和高度。不是指盒子的宽度和高度。
+
+        一个盒子在网页上占据的宽度：
+            width+左右padding+左右border+左右的margin
+        一个盒子在网页上占据的高度：
+            height+上下padding+上下border+上下的margin
+
+        在PC端一般都设置单位为px。
+    
+    border：
+        盒子的边框。通常在CSS中，设置盒子的边框需要设置边框的粗细，边框样式，边框颜色。
+        一个盒子的边框由border-widht, border-style, border-color组成。
+
+        边框也是有四个方向：
+        border-top, border-right, border-bottom, border-left。
+
+        最的最多的就是直接border:1px solid red;  如果一个盒子仅仅有一个边框，那么我们也会设置这一边框。
+
+    padding:
+        内边距，也叫补白，表示盒子内容区域到边框的距离。
+
+        padding也是有四个方向：
+            padding-top
+            padding-right
+            padding-bottom
+            padding-left
+        
+        padding后面的跟的值可以是：
+            1个值： padding:10px  表示这个盒子的上右下左的内边距都是10px。
+            2个值： 第1个值表示上下，第2个值表示左右。
+            3个值： 第1个值表示上，第2个值表示左右，第3个值表示下。
+            4个值： 顺序是上，右，下，左
+
+    margin：
+        外边距，使用margin表示盒子与盒子之间的距离。
+
+        margin也是有四个方向：
+            margin-top
+            margin-right
+            margin-bottom
+            margin-left
+
+        margin后面的跟的值可以是：
+        1个值：  margin:10px  表示这个盒子的上右下左的外边距都是10px。
+        2个值： 第1个值表示上下，第2个值表示左右。
+        3个值： 第1个值表示上，第2个值表示左右，第3个值表示下。
+        4个值： 顺序是上，右，下，左
+
+    很多标签都有默认的margin和padding，不方便写CSS，所以都会直接把默认margin和padding去掉。
+
+    background:
+        用来设置盒子的背景：
+            背景颜色
+            背景图片
+
+        背景颜色： background-color
+            背景颜色会填充一个盒子的内容区域和padding区域，以及边框。
+
+        背景图片：background-image
+            url()函数，表示用来指定一个背景图片的路径的，()里面可以加"",也可以不加。
+            默认情况下，一个盒子的背景图片，会平铺一个盒子，在水平和垂直方向上都会平铺。
+            可以通过一个属性，来指定是否平铺，叫backgroud-repeat
+
+            默认情况下，背景图片的左上角和盒子的padding的左上角是对齐。 
+            可以通过一个属性，来指定背景图片的位置，叫background-position
+
+    总结：
+        1）盒子模型是CSS中一个非常重要的核心。
+        2）只是一个HTML标签，它就是一个盒子。
+        3）学习盒子模型，主要就是研究盒子模型设置6大属性。
+        4）width   height   padding   border   margin  background
+        5）后面会深入学习盒子模型的6大属性\

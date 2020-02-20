@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+</head>
+
+<body>
+    <!-- <h2>课程表</h2>
+    <table border="1" width="500" height="250" align="center" cellspacing="10" cellpadding="4">
+        <thead bgcolor="skyblue">
+            <tr>
+                <th></th>
+                <th>星期一</th>
+                <th>星期二</th>
+                <th>星期三</th>
+                <th>星期四</th>
+                <th>星期五</th>
+            </tr>
+        </thead>
+        <tbody  bgcolor="gold" align="center">
+            <tr>
+                <td>第一节</td>
+                <td>AAA</td>
+                <td>BBB</td>
+                <td>CCC</td>
+                <td>DDD</td>
+                <td>EEE</td>
+            </tr>
+            <tr>
+                <td>第二节</td>
+                <td>AAA</td>
+                <td>BBB</td>
+                <td>CCC</td>
+                <td>DDD</td>
+                <td>EEE</td>
+            </tr>
+            <tr>
+                <td>第三节</td>
+                <td>AAA</td>
+                <td>BBB</td>
+                <td>CCC</td>
+                <td>DDD</td>
+                <td>EEE</td>
+            </tr>
+            <tr>
+                <td>第四节</td>
+                <td>AAA</td>
+                <td>BBB</td>
+                <td>CCC</td>
+                <td>DDD</td>
+                <td>EEE</td>
+            </tr>
+            <tr>
+                <td>第五节</td>
+                <td>AAA</td>
+                <td>BBB</td>
+                <td>CCC</td>
+                <td>DDD</td>
+                <td>EEE</td>
+            </tr>
+            <tr>
+                <td>第六节</td>
+                <td>AAA</td>
+                <td>BBB</td>
+                <td>CCC</td>
+                <td>DDD</td>
+                <td>EEE</td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    <h2>课程表</h2>
+    <table border="1" width="500" height="250" align="center" cellspacing="10" cellpadding="4">
+        <thead bgcolor="skyblue">
+            <tr>
+                <th colspan="2" align="right">星期一</th>
+                <!-- <th>星期一</th> -->
+                <th>星期二</th>
+                <th>星期三</th>
+                <th>星期四</th>
+                <th>星期五</th>
+            </tr>
+        </thead>
+        <tbody  bgcolor="gold" align="center">
+            <tr>
+                <td rowspan="4">上午</td>
+                <td>AAA</td>
+                <td>BBB</td>
+                <td>CCC</td>
+                <td>DDD</td>
+                <td>EEE</td>
+            </tr>
+            <tr>
+                <!-- <td>第二节</!--> 
+                <td>AAA</td>
+                <td>BBB</td>
+                <td>CCC</td>
+                <td>DDD</td>
+                <td>EEE</td>
+            </tr>
+            <tr>
+                <!-- <td>第三节</td> -->
+                <td>AAA</td>
+                <td>BBB</td>
+                <td>CCC</td>
+                <td>DDD</td>
+                <td>EEE</td>
+            </tr>
+            <tr>
+                <!-- <td>第四节</td> -->
+                <td>AAA</td>
+                <td>BBB</td>
+                <td>CCC</td>
+                <td>DDD</td>
+                <td>EEE</td>
+            </tr>
+            <tr>
+                <td rowspan="2">下午</td>
+                <td>AAA</td>
+                <td>BBB</td>
+                <td>CCC</td>
+                <td>DDD</td>
+                <td>EEE</td>
+            </tr>
+            <tr>
+                <!-- <td>第六节</td> -->
+                <td>AAA</td>
+                <td>BBB</td>
+                <td>CCC</td>
+                <td>DDD</td>
+                <td>EEE</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
+<!-- 
+    作用：在网页上创建表格。
+    表格相关的一堆的标签：
+        table: 表格    本意是桌子意思
+        thead: 表头  往往只有一个
+        tbody: 表体  往往只有一个
+        tr: row  行
+        th: 表头中的每一个单元格（列）
+        td: 表体中的每一个单元格（列）
+
+    表格中相关的一堆的属性：
+        border: 给表格设置边框  这个边框是table最外层的边框  不是单元格的边框。
+        width: 宽度，给table加，表示整体表格的宽度，不写单位，默认是px。
+        height: 高度，给table加，表示整体表格的高度，不写单位，默认是px。
+        align: 对齐方式 ，给table加,表示整体表格的对齐方式，有left, reght, center
+               也可以给tr加，表示它里面的内容对齐的方式
+               也可以给td加，表示它里面的内容对齐的方式
+               也可以给tbody加，表示它里面的内容对齐的方式
+        bgcolor: 背景颜色  
+        cellspacing: 单元格之间的距离，给table加，表示单元格之间的距离
+        cellpadding: 单元格中的内容与单元格边框的距离
+
+    table上面可以添加的属性有：
+        border="1" 
+        width="500" 
+        height="250" 
+        align="center" 
+        cellspacing="10" 
+        cellpadding="4"
+        <table border="1" width="500" height="250" align="center" cellspacing="10" cellpadding="4">
+ 
+    tr上面的可以添加的属性有：
+        height  设置每一行的高度
+        bgcolor 设置每一行的背景颜色 
+        aligne  设置每一行内容的水平对齐方式 
+        valign  设置每一行内容的垂直对齐方式 
+
+    td和th上面的有两个重要的属性：
+        rowspan:  row 行  span 跨度 
+            同一列中的多行，进行跨度，同一列的第1行加上rowspan，跨度几行，rowspan的值就是多少。还需要把其它行的删除了。
+        colspan:  cols 列 span 跨度
+        
+-->

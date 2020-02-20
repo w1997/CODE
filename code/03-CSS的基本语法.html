@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS的基本的语法</title>
+    <style>
+        /* .box{
+            color: red;
+            background-color: skyblue
+        } */
+        /* div{
+            color: red;
+            background-color: skyblue;
+        } */
+
+        /* .item1 叫class选择器 */
+        /* .item1{
+            color: red;
+            background-color: skyblue;
+        } */
+        /* #box{
+            color: red;
+            background-color: skyblue;
+        } */
+
+        /* .box1{
+            color: red;
+        }
+        .box2{
+            background-color: skyblue;
+        } */
+
+        /* *表示通配符选择器，用来选中页面中所有的标签 */
+        /* *{
+            background-color: skyblue;
+        } */
+
+        /* 后代选择器 */
+        /* .father ul .item{
+            background-color: gold;
+        } */
+
+        /* 分组选择器 */
+        /* div, p, h1, .item{
+            background-color: gold;
+        } */
+
+        /* 交集选择器 */
+        /* h1.item1{
+            background-color: gold;
+        } */
+
+        /* 伪类选择器 选中鼠标放上去的一个状态 */
+        :hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1 class="box">Hello CSS</h1> -->
+
+    <!-- class选择器 -->
+    <!-- <div class="item1">div item1</div>
+    <div class="item2">div item2</div>
+    <div class="item3">div item3</div>
+    <h1 class="item1">h1 itme1</h1>
+    <p class="item1">p itme1</p> -->
+
+    <!-- ID选择器 -->
+    <!-- <div id="box">div box</div>
+    <div>div</div>
+    <h1 id="box1">h1 box1</h1> -->
+
+    <!-- class值可以有多个，中间使用空格隔开 -->
+    <!-- <div class="box1 box2 box3">
+        div
+    </div> -->
+
+    <!-- 后代选择器 .father ul .item -->
+    <!-- <div class="father">
+        <ul>
+            <li class="item"><a href="">百度</a></li>
+            <li><a href="">淘宝</a></li>
+            <li><a href="">京东</a></li>
+        </ul>
+    </div> -->
+
+    <!-- 分组选择器（并集选择器） div, p, h1, .item -->
+    <!-- <div>div</div>
+    <p>p</p>
+    <h1>h1</h1>
+    <span class="item">span</span> -->
+
+    <!-- 交集选择器 h1.item1  .item1h1不对 -->
+    <!-- <h1>h1 item1</h1>
+    <h1>h1 item1</h1>
+    <h1 class="item1">h1 item1</h1>
+    <p class="item1">p item1</p> -->
+
+    <!-- 伪类选择器 -->
+    <a href="http://www.baidu.com">百度一下</a>
+</body>
+</html>
+<!-- 
+    CSS的基本语法：
+        选择器
+        声明块{属性名:属性值;属性名:属性值;属性名:属性值;}
+
+        CSS和HTML一样，写错了，不会报错，仅仅不起效果而已。
+
+        一个属性与一个属性之间需要使用分号隔开。最后一个属性的分号可以不写。
+
+        : ; 必须是英文的  
+
+    选择器:
+        标签选择器  div  表示选中页面中所有的div
+
+        class选择器  .item  表示选中页面中所有有class="item" 的元素
+            class选择器的值可以有多个，中间使用空格隔开，如： <div class="box1 box2 box3">
+
+        ID选择器 #box 表示选中页面中有id="box"的元素
+            可以给页面上多个元素设置相同的ID，虽然可以起效果，但是绝对不要这么写。ID表示唯一，只有页面中某一个非常独立的区域的话，才会使用ID选择器。
+            也就是说同一个ID值，在页面上只能出现一次。是行业的潜规则。
+        
+        通配符选择器 * 表示选中页面中所有的标签
+
+        后代选择器： .father ul .item   空格表示后代  表示选中某一个元素的后代元素
+
+        分组选择器：并集选择器  逗号  div, p, h1, .itme
+        
+        交集选择器：h1.itme1  表示选中h1并且h1中有class="item1"的元素
+
+        class选择器和id选择器的区别：
+            class选择器：class值可以相同，可以通过相同的class选中多个不同的标签。
+            id选择器：行业规定，ID值是唯一，页面中不能出现两个相同的ID值
+            写样式时，尽可能多的使用class选择器，如果页面中确实有一块是唯一，也可以使用ID选择器。
+
+    总结选择器：
+        现在来说，先学习7个选择器。后面讲到CSS3的时候，我们要讲70个左右的选择器。
+        标签选择器：p 
+        类选择器： class="item"   .item 
+        ID选择器： ID="box"  #box 
+        *选择器：  选中页面中所有的标签 
+        后代选择器：  div p  选中div里面的p标签 
+        分组选择器： 并集选择器  div, p  选中div和p
+        交集选择器： div.box  选div并且div中有class="box"的标签
+        伪类选择器：有很多，我们先学习一个。 :hover  表示鼠标放上去的一个状态
+            伪类：不存在这么一个类 class="hover"
+            类选择器： .item 
+            伪类：:hover   一般用到a标签上面
+ -->

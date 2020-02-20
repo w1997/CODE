@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片标签的使用</title>
+</head>
+<body>
+    <!-- src可以是网络上的一个图片，因为图片也是一个资源 -->
+    <!-- http://t7.baidu.com/it/u=32048 是互联网上的一个绝对路径 -->
+    <!-- <img src="http://t7.baidu.com/it/u=3204887199,3790688592&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1582095057&t=22c49a658514206651972d8c89cfa631" alt=""> -->
+
+    <!-- src后面是以./打头，这个路径就是一个相对的路径 -->
+    <!-- <img src="./imgs/mm.jpg" alt=""> -->
+
+    <!-- alt属性的作用 -->
+    <!-- <img src="./imgs/mm1.jpg" alt="图片出错了，请刷新你的浏览器"> -->
+
+    <!-- width="100" 单位可以不写，默认是px -->
+    <img src="./imgs/mm.jpg" alt="图片出错了，请刷新你的浏览器">
+    <!-- <img src="./imgs/mm.jpg" width="100" alt="图片出错了，请刷新你的浏览器"> -->
+    <img src="./imgs/mm.jpg" height="200" alt="图片出错了，请刷新你的浏览器">
+</body>
+</html>
+
+<!-- 
+    作用：就是在页面上放一个张图片。  img肯定是image的缩写  src是source的缩写
+    
+    注意细节：
+        A，图片标签是一个女标签，可以并排显示。
+        B，图片上的width和height这两个属性用的还是比较多的。
+
+    几个重要的属性：
+        src:表示一个图片的路径，可以是一个绝对路径，也可以是一个相对的路径
+        alt：作用1是当图片的路径出问题，显示alt对应的内容  一般都会加上alt，有利于SEO。
+        width:设置图片的宽度,单位默认是px，可写，可不写。当设置了width，那么height也是等比例变化的。
+        height:同widht，是用来设置图片的高度的
+
+
+        file:///C:/Users/Administrator/Desktop/html/code/imgs/mm.jpg
+ -->

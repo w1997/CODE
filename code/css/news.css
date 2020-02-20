@@ -1,0 +1,19 @@
+.news{
+    width: 310px; 
+    margin: 50px auto; 
+    border: 1px solid skyblue;
+    padding: 10px; 
+}
+.news li{
+    line-height: 25px; 
+    background: url("./images/icon_v9.png") no-repeat 0px -125px;
+    padding-left: 10px;
+}
+.news li a{
+    color: skyblue;
+    text-decoration: none;
+}
+.news li a:hover{
+    color:gold;
+    text-decoration: underline;
+}

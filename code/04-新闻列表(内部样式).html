@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻列表</title>
+    <style>
+        /*  reset.css 重置css 把标签的一些默认样式搞掉  */
+        *{margin: 0; padding: 0;} /* 去除间隙 */
+        ul{ list-style-type: none; margin-bottom: 20px;} /* 去除列表前面的不圆点 */
+        body{font-size: 14px;}/* font-size有继承性，给body设置，其它的标签都当于都设置了fontsize */
+        
+        /* news.css 针对新闻列表的样式 */
+        /* margin: 50px auto; 可以让盒子居中 */
+        .news{
+            width: 310px; 
+            margin: 50px auto; 
+            border: 1px solid skyblue;
+            padding: 10px; /* 内容与边框之间的距离 上下左右 */
+        }
+        .news li{
+            line-height: 25px; /* 设置行高 一行的高度 */
+            /* no-repeat表示图片不平铺 */
+            background: url("./images/icon_v9.png") no-repeat 0px -125px;
+            padding-left: 10px;
+        }
+        .news li a{
+            color: skyblue;
+            text-decoration: none;
+        }
+        .news li a:hover{
+            color:gold;
+            text-decoration: underline;
+        }
+        /* 说明：还没有系统的学习CSS，先写案例，等系统学了CSS后，回头看一个CSS */
+    </style>
+</head>
+<body>
+    <div class="news">
+        <ul>
+            <li><a href="#"><strong>习近平:抓住经济社会发展全局的"牛鼻子"</strong></a></li>
+            <li><a href="#">习近平教你如何学党章国平 治国理政进行时</a></li>
+            <li><a href="#">推进"放管服"改革电视电话会 为何这5家发言</a></li>
+            <li><a href="#">广东官员派科长花公款去澳洲伺候女儿坐月子</a></li>
+            <li><a href="#">青岛政协副主席会场被带走 态度强硬反应激烈</a></li>
+            <li><a href="#">广东官员派科长花公款去澳洲伺候女儿坐月子</a></li>
+            <li><a href="#">青岛政协副主席会场被带走 态度强硬反应激烈</a></li>
+        </ul>
+        <ul>
+            <li><a href="#"><strong>习近平:抓住经济社会发展全局的"牛鼻子"</strong></a></li>
+            <li><a href="#">习近平教你如何学党章国平 治国理政进行时</a></li>
+            <li><a href="#">推进"放管服"改革电视电话会 为何这5家发言</a></li>
+            <li><a href="#">广东官员派科长花公款去澳洲伺候女儿坐月子</a></li>
+            <li><a href="#">青岛政协副主席会场被带走 态度强硬反应激烈</a></li>
+            <li><a href="#">广东官员派科长花公款去澳洲伺候女儿坐月子</a></li>
+            <li><a href="#">青岛政协副主席会场被带走 态度强硬反应激烈</a></li>
+        </ul>
+        <ul>
+            <li><a href="#"><strong>习近平:抓住经济社会发展全局的"牛鼻子"</strong></a></li>
+            <li><a href="#">习近平教你如何学党章国平 治国理政进行时</a></li>
+            <li><a href="#">推进"放管服"改革电视电话会 为何这5家发言</a></li>
+            <li><a href="#">广东官员派科长花公款去澳洲伺候女儿坐月子</a></li>
+            <li><a href="#">青岛政协副主席会场被带走 态度强硬反应激烈</a></li>
+            <li><a href="#">广东官员派科长花公款去澳洲伺候女儿坐月子</a></li>
+            <li><a href="#">青岛政协副主席会场被带走 态度强硬反应激烈</a></li>
+        </ul>
+    </div>
+</body>
+</html>

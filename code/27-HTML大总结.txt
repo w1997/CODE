@@ -1,0 +1,204 @@
+一，HTML的初识
+    1，HTML是什么？
+        是计算机语言中的其中一种，是一种标签语言。
+        全称叫超文本标签语言。
+        英语：HyperText Markup Language。
+        超文本：文字，图片，音乐，视频，程序，链接.... 一张网页上面放的放的就是超文本。
+        标签：叫标记  <abc> <name></name>  html中定义好一些标签，如<h1></h1>  <img />
+
+    2，HTML中的基本骨架？
+        <!DOYTYPE html>
+        <html>
+            <head>
+                <meta charet="utf-8">
+            </head>
+            <body>
+                <h1>Hello HTML~</h1>
+            </body>
+        </html>
+
+    3，HTML中的基本的语法？
+        A，HTML中不区分大小写。
+        B，对于单标签，最后的/，可加可不加。
+        C，属性值可以加引号，也可以不加。
+        ...  语法比较灵活 
+
+        好习惯：
+            A，必须有基本的骨架。
+            B，标签都小写。
+            C，给属性值加上引号。
+            D，标签不能交叉。
+            E，标签要正确的关闭。
+            ... 
+
+    4，HTML中的标签，属性，元素的概念？
+        <h1 class="box">Hello HTML~</h1>
+            标签：<name>  一个标签就是一个单词使用<>包含起来。<h1></h1>
+            属性：在开始标签中以xxx="xxx"形式的文本，叫属性。class="box"
+            元素：开始标签+结束标签+属性+标签中的所有的内容。<h1 class="box">Hello HTML~</h1>
+
+    5，什么是HTML中标签的语义化？
+        不的标签所代表的含义是不一样。根据不同的语义使用不同的标签，也就是说什么样的标签干什么事。 
+        大标签：div+css --》h1的效果
+        一个网页的标签的语义化好了，也是有利于SEO。
+        DIV+SPAN是没有任何语义。DIV就是为了和CSS配合进行布局。
+        HTML5中提供了更有语义的DIV，如:header, footer, nav, seciton....
+        现在主流还是DIV。
+
+    6，web网页的三层结构？
+        结构层：由HTML提供的。核心是DIV。也就是内容层。
+        样式层：由CSS提供的，CSS的两大作用，布局（浮动布局，流式布局，层布局，flex布局），美化（盒子模型+其它属性）
+        行为层：由JS提供的。难
+
+    7，五大浏览器？
+        IE	   不要使用IE浏览器
+        Firefox	 也可以使用
+        Opera	  之前也用过
+        Chrome	学习时，使用谷歌浏览器
+        Safari  苹果  
+    ....
+
+二，表单相关的标签
+    表单：主要用于收集用户输入的内容。 有了表单我们就可以参与到一个网页的创建中了。 
+        有表单，我们不只是网页的浏览者，也可以是一个网页的创建者。
+    
+    form标签：就是表单的意思，作用就是用来创建一个表单
+        <form aciton="xxx" method="get">  把用户输入的内容提交到某个地方  method表示提交数据的方式，通常有GET提交，和POST提交
+            // 在表单中放表单元素
+        </form>
+        男标签，块级标签，独占一行
+    input标签：表单元素，有多种形式，通过type就可以指定的形式。
+        女标签（特殊的女标签，和img一样），行内块，可以并排显示
+        直接使用input表单元素，也是OK，不需要使用form，不能提交
+        HTML4版本中常见的type:
+            <input type="text" />  普通的文本框，用户名
+            <input type="password" />  普通的密码框
+            <input type="redio" />  单选框 如果有两个单选框，你要二选一，你需要加上name属性，name属性值需要一样。
+            <input type="checkbox" />  复选框 
+            <input type="file" />  文件上传
+            <input type="submit" />  提交按钮，具备提交的功能
+            <input type="button" />  普通按钮，没有提交的功能
+            <input type="image" />  图片按钮
+            <input type="hidden" />  隐藏区域，看不见，传递数据
+        HTML5版本中常见的type:  有兼容性问题，在不同的浏览器下，长的不一样
+            <input type="email" />  表示写的数据，需要符合邮箱的格式
+            <input type="url" />   表示写的数据，需要符合网站的格式
+            <input type="number" />  表示写的数据，必须是数字
+            <input type="range" />  不是一个输入框，范围的选择器
+            <input type="search" />  输入框后面多一个x  
+            <input type="color" />  不是一个输入框，颜色的选择器
+    select+option标签： 下拉菜单   
+        <select>
+            // 很多的option也是通过for循环渲染出来的
+            <optin value="" select="ture">1</optin>  // value是往后端提交的数据，通过是数字或单词
+        </select>
+    textarea标签：文本域  输入大量的文本，贴吧中的输入框，QQ空间中的输入框... 
+
+    重点：
+        form    action   method(get, post)
+        input  常用的type
+        select+option
+
+三，HTML中经常使用的标签  
+    标题标签：
+        h1~h6 
+        场景：新闻，博客，文章的标题 / 网站的logo 
+        基本上任何一个网站都有，标题标签是有利于SEO。
+        男标签，块级标签，独占一行
+    图片标签：
+        img 
+        场景：就向网页插入一张图片。
+        属性： 
+            src: 图片的地址（相对地址，绝对地址）
+            alt: 1）当图片路径出错时，显示提示内容 2）有利于SEO
+            widht: 设置图片的宽度
+            height:设置图片的高度
+        一个图片也可以当成一个链接，进行点击。
+        女标签（特殊的女标签），行内块， 可以实现并排显示。
+    段落标签：
+        p
+        场景：语文中的段落， 使用它进行分隔内容
+        男标签，块级标签，独占一行
+    超连接标签：
+        a 
+        场景：形成一个链接  站外链接  站内链接   锚点链接
+        ./  ../  ./表示当前目录    ../表示上一级目录
+        站外链接  <a href="http://www.baidu.com">百度一下</a>
+        站内链接  <a href="./about.html">关于我们</a>
+        锚点连接：先打锚点   连接到锚点
+                 <a name="xxx"></a>     <a href="#xxx">连接到某个锚点</a>
+
+                 特殊的锚点：top   <a href="#top">返回顶部</a>
+                    top可以不写   <a href="#">返回顶部</a>
+        重要的属性：
+            href: 表示一个连接的地址  href="http://www.baidu.com"
+            target: _blank 表示以一个新的选项卡打开链接
+                    _self  表示在当前的选项卡中打开链接
+            name: 用于设置锚点
+            title: 设置提示内容，鼠标放上去显示提示内容。
+
+        注意：
+            A，如果是站外链接，需要加上http://   https:// 
+    DIV和SPAN：
+        DIV肯定是核心，一个网站中使用最多的标签就是DIV。
+        男标签，块级标签，独占一行
+
+四，HTML中列表相关的标签
+    分类：
+        无序列表：用的相当多，用来列表或导航，基本上任何一个网站都有列表
+        有序列表：用的比较少，只有在你强调语义化时，才会使用有序列表
+        自定义列表：对一个事件，时间，术语，名词解释时。
+
+    无序列表： 
+        ul+li    默认情况下，每一个li前面有一个小黑点，在CSS中通常都会直接去掉
+
+    有序列表： 
+        ol+li   默认情况下，会有一个标签，在CSS中也会去掉，通过自己设置标识
+
+    自定义列表： 
+        dl+dt+dd 
+
+    强调：新闻列表，电影列表，导航.....
+
+五，HTML中表格相关的标签
+    用的也不多。
+    场景：带有表格的网站，或者是后台管理系统。
+    table：
+        thead:
+            tr:
+                th:
+        tbody:
+            tr:
+                td:
+    属性：  
+        border, widht, height, aligin, cellspcing, cellpadding, rowspan, colspan...
+
+六，其它
+    快捷键：
+        shift+alt+向下箭头  复制上一行
+        ctrl+x  删除一行（剪切）
+        ctrl+z  撤销
+        ctrl+鼠标中键  改变字体大小
+        按住鼠标中键，向下拉，同时选中多行
+        ctrl+B  把项目结构视图隐藏（展开）
+        ...
+
+    web前端开发环境：
+        编辑器+浏览器
+        编辑器：vscode, webstrom,hbuilder
+        浏览器：谷歌浏览器
+
+    程序员分类：
+        前端：web前端, android, ios, 游戏... 
+        后端：java, php, python, c++...
+
+    参考别人写的代码：
+        源码之家
+        A5源码
+
+    开发者工具调试网页：
+        F12   鼠标检查
+
+    MDN是一个比较权威手册
+
+总结完后，以文章的形式展示出来。
