@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>让块级标签并排显示并且设置间隙</title>
+    <style>
+        *{margin:0;padding:0}
+        .father{
+            height: 460px;
+            width:460px;
+            border: 1px solid gray;
+            margin:0 auto;
+        }
+        .son{
+            height:100px;
+            width: 100px; 
+            float: left; 
+            margin-right: 20px;
+            text-align: center;
+                     
+        }
+    </style>
+</head>
+<body>
+
+    <div class="father">
+        <div style="background-color: red;" class="son">son1</div>
+        <div style="background-color: gold;" class="son">son2</div>
+        <div style="background-color: green;" class="son">son3</div>
+        <div style="background-color: blue;margin-right:-20px;" class="son">son4</div>
+    </div>
+</body>
+</html>
+<!-- 如果只对父元素和子元素设置width和height，在页面上就可以看到不同颜色的子元素按照列的形式显示，并且它们之间并没有间隙。
+如何让这些子元素并排显示呢？
+     对子元素设置如下代码：
+     (1)display:inline-block;(此时会发现盒子可以并排显示，但是盒子并不是所有的盒子都在一排，并且盒子之间有间隙)
+     (2)float: left;(此时会发现盒子并排显示，盒子与盒子之间并没有间隙)
+    当用inline-block布局是我们需要先解决盒子间隙问题:
+        在父元素中设置font-size:0;就可以发现盒子之间的间隙没有了，但是盒子里的文字也没有了，此时在子元素在设置font-size:14px;文字就会出现。
+            在盒子中的文本是不居中的，如果想要文本居中，就在子元素中设置text-align: center;
+    
+如何让这些子元素之间有相同的间隙？
+    我们事先已经规定了父元素和子元素的宽度，如果直接设置margin-right: 20px,就会发现盒子不能并列显示，这是为什么呢？
+    是因为盒子的宽度width+外边距margin-right的值已经超过了父元素的宽度。
+    如何设置呢？
+        方法一：给最后一个子元素设置为margin-right:0px;
+        方法二：给最后一个子元素设置为margin-right:-20px;
+完成以上操作就解决问题了。 -->
+
+   
