@@ -1,0 +1,220 @@
+.w1170{
+    width:1170px;
+    margin: 0 auto;
+}
+*{margin: 0;padding: 0;}
+/* 左侧 */
+#top{
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.top{
+    height:30px;
+}
+.top .top-user>li{
+    float: left;
+    height:30px;
+    line-height: 30px;
+}
+.top .top-user>li>a{
+    padding: 0 10px;
+    float: left;
+    color: #666;
+}
+.top .top-user>li>a:hover{
+    color:#2bb8aa;
+}
+.top .top-user .collection >a{
+    padding-left: 20px;
+    background: url("../imgs/star.png") no-repeat;
+    background-position: 0 7px;
+}
+.top .top-user>.collection>a:hover{
+    background: url("../imgs/star-hover.png") no-repeat;
+    background-position: 0 7px;
+}
+.top .top-user .reg a{
+    border-right: 1px solid #ccc;
+}
+/* 右侧 */
+.top-left{
+    float: right;
+}
+.top .top-left>li{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+}
+.top-left>li>a{
+    border-right: 1px solid #ccc;
+    padding: 0 21px 0 11px;
+    color: #666;
+}
+.sanjiao{
+    width: 0;
+    height:0;
+    border:4px solid transparent;
+    border-top-color: #666;
+    position: absolute;
+    top:13px;
+    right:8px;
+}
+/* ------------下拉框 */
+.cover{
+    position: absolute;
+    top:0;
+    right:0;
+    left:-1px;
+    bottom:2px;
+    background-color:#fff;
+    border: 1px solid #ccc;
+    border-top: 0;
+    border-bottom: 0;
+    padding-left: 11px;
+    line-height: 30px;
+    color:#2bb8aa;
+    cursor: pointer;    
+    display: none;
+}
+.cover-list{
+    position: absolute;
+    border: 1px solid #ccc;
+    top:27px;
+    right:0;
+    min-width:80px;
+    background-color: #fff;
+    display: none;
+}
+/*  */
+.cover-list>ul>li{
+    white-space: nowrap;
+}
+.cover-list>ul{
+    padding:15px;
+}
+.sanjiaot{
+    width:0;
+    height:0;
+    border:4px solid transparent;
+    border-bottom-color:#666;
+    position: absolute;
+    top:8px;
+    right:8px;
+}
+.top-left>li:hover a{
+    border-right:0px;
+}
+.top-left>li:hover .cover{
+    display: block;
+}
+.top-left>li:hover .cover-list{
+    display: block;
+}
+/* logo区域 */
+#logo{margin-top: 20px;}
+.logo h1{
+    float: left;
+}
+.logo ul{
+    float: left;
+    position: relative;
+    top:8px;
+    margin-left: 10px;
+}
+.logo ul .city{
+    font-size:18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.logo ul .city-btn{
+    border: 1px solid #eee;
+    padding: 5px 6px;
+    color: #666;
+}
+.search{
+    float: left;
+     margin-left: 183px;
+}
+.search .search-top{
+    width: 486px;
+    height: 38px;
+    border: 2px solid #2db8ad;
+    overflow: hidden;
+}
+.search .search-top>button{
+    float: left;
+}
+
+.search .search-top>input{
+    float: left;
+    height: 100%;
+    width: 352px;
+    padding-left: 5px;
+    outline: none;
+    border: 0;
+}
+/* 搜索 */
+.tuangou{
+    height: 100%;
+    border: 0;
+    outline: 0;
+    border-right: 1px solid #ccc;
+    background: #fff;
+    padding-left: 14px;
+    padding-right: 22px;
+    line-height: 38px;
+    font-size: 14px;
+    color: #666;
+    position: relative;
+}
+.tuangou a{
+    color:#666;
+}
+.tuangou>i{
+    top: 16px;
+}
+.tuangou-toggle{
+    position: absolute;
+    top: 37px;
+    left: -1px;
+    right: -1px;
+    border: 1px solid #ccc;
+    border-top: 0;
+    background-color: #fff;
+}
+.search-top .sousuo{
+    width: 64px;
+    height: 100%;
+    float: right;
+    background-color: #2bb8aa;
+    border: 0;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+}
+.href-list{
+    padding-top: 14px;
+}
+.href-list>a{
+    margin-right: 20px;
+}
+/*右侧的图片*/
+.tui{
+    position: relative;
+    top: 8px;
+}
+.tui li{
+    float: left;
+    text-align: center;
+    margin: 0 10px;
+    position: relative;
+}
+.tui li a{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
