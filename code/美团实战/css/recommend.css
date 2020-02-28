@@ -1,0 +1,118 @@
+#recommend{height:477px;}
+.recommend{
+    margin-left: 246px;
+    padding-left: 18px;
+}
+/* #recommend .fl{
+    margin-left: 18px;
+    margin-right: 18px;
+} */
+#recommend .fl .list>li{
+    height:52px;
+    border-bottom: 1px solid #eee;
+    line-height: 52px;
+}
+#recommend .fl .list>li .hot{
+    width: 16px;
+    height: 22px;
+    display: inline-block;
+    position: relative;
+    top:9px;
+    background: url("../imgs/hot.png") no-repeat;
+}
+#recommend .fl .list>li .area{
+    width: 16px;
+    height: 22px;
+    display: inline-block;
+    position: relative;
+    top:9px;
+    background: url("../imgs/area.png") no-repeat;
+}
+#recommend .fl .list>li .business{
+    width: 16px;
+    height: 22px;
+    display: inline-block;
+    position: relative;
+    top:9px;
+    background: url("../imgs/business.png") no-repeat;
+}
+#recommend .fl .list>li>a{
+    padding-right: 20px;
+}
+/* 轮播图 */
+ .recommend .show{
+     width:690px;
+     height: 318px;
+    /* border:1px solid #eee;  */
+    border-bottom: 1px solid #eee;
+    position: relative;
+    /* 图片超出部分隐藏 */
+    overflow: hidden;
+}
+.recommend .show .shop{
+    margin-top: 10px;
+    height:100%;
+    width:3000px;
+}
+.recommend .show .shop>li{
+    float: left;
+    width:689px;
+    height:100%;
+}
+.recommend .show>.btnleft{
+    position: absolute;
+    top:50%;
+    width:25px;
+    height:25px;
+    background: url("../imgs/arrow-t.png") no-repeat;
+    margin-top: -60px;
+    cursor: pointer;
+}
+.recommend .show>.btnRight{
+    position: absolute;
+    top:50%;
+    right:0;
+    width:25px;
+    height:25px;
+    background: url("../imgs/arrow-t.png") no-repeat;
+    margin-top: -60px;
+    cursor: pointer;
+    background-position: 0 -75px;
+}
+.recommend>div.fl{
+    width:690px;
+}
+.recommend .show .shop .fl{
+    padding-right: 10px;
+    border-right: 1px solid #eee;
+}
+/* 图下面的文字 */
+.recommend .show h4{
+    padding-top: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 2;
+}
+.recommend .show .single-recomment-line{
+    position: relative;
+}
+.recommend .show .single-recomment{
+    position: relative;
+}
+.recommend .show .price{
+    position: absolute;
+    font-size: 30px;
+    color: #f76120;
+    right: 11px;
+    bottom: 0;
+}
+/* 右边俩图片 */
+.recommend>div.fr{
+    /* height:460px; */
+    width: 198px;
+    border-right: 1px solid #eee;
+    border-left: 1px solid #eee;
+}
+.recommend>div.fr>div{
+border-bottom: 1px solid #eee;
+}

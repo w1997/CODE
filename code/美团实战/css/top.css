@@ -34,7 +34,7 @@
     background: url("../imgs/star-hover.png") no-repeat;
     background-position: 0 7px;
 }
-.top .top-user .reg a{
+.top .top-user>li.reg>a{
     border-right: 1px solid #ccc;
 }
 /* 右侧 */
@@ -113,7 +113,8 @@
     display: block;
 }
 /* logo区域 */
-#logo{margin-top: 20px;}
+#logo{margin-top: 20px;
+    height: 84px;}
 .logo h1{
     float: left;
 }
@@ -133,6 +134,7 @@
     padding: 5px 6px;
     color: #666;
 }
+/* 搜索整体 start */
 .search{
     float: left;
      margin-left: 183px;
@@ -155,7 +157,8 @@
     outline: none;
     border: 0;
 }
-/* 搜索 */
+
+/* 团购 */
 .tuangou{
     height: 100%;
     border: 0;
@@ -172,6 +175,9 @@
 .tuangou a{
     color:#666;
 }
+.tuangou a:hover{
+    color:#2bb8aa;
+}
 .tuangou>i{
     top: 16px;
 }
@@ -184,6 +190,9 @@
     border-top: 0;
     background-color: #fff;
 }
+/* 团购 end */
+
+/* 搜索框 */
 .search-top .sousuo{
     width: 64px;
     height: 100%;
@@ -199,9 +208,16 @@
 }
 .href-list>a{
     margin-right: 20px;
+    color: #666;
 }
+.href-list>a:hover{
+    color:#2bb8aa;
+} 
+/* 搜索整体 end */
+
 /*右侧的图片*/
 .tui{
+    float: right;
     position: relative;
     top: 8px;
 }

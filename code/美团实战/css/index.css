@@ -1,0 +1,141 @@
+.modle-title{
+    height: 30px;
+    padding-top: 30px;
+    padding-bottom: 13px;
+    
+}
+.modle-title>h3{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 50px;
+    position: relative;
+}
+.modle-title>h3>i{
+    /* display: inline-block; */
+    position: absolute;
+    top:0;
+    left:0;
+    background: url("../imgs/food-title.png") no-repeat;
+    height: 30px;
+    width: 40px;
+}
+.modle-title h3 a{
+    font-size: 18px;
+    text-decoration: none;
+}
+.modle-title>ul>li{
+    display: inline-block;
+    padding-top: 7px;
+    /* font-size: 14px;
+    border-right:1px solid #ddd;
+    padding-right: 9px; */
+}
+.modle-title>ul>li a{
+    font-size: 14px;
+    border-right:1px solid #ddd;
+    padding-right: 10px;
+    padding-left:10px;
+}
+.modle-title>ul>li a.all{
+    padding-left: 20px;
+}
+/* 美食商品样式 */
+.modle-content{
+    border-top: 1px solid #eee;
+    border-left: 1px solid #eee;
+}
+.modle-content:after{
+    content: "";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+.single-shop{
+    width: 260px;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding:12px 16px 22px 15px;
+}
+.single-shop a:hover{
+    text-decoration: none;
+    color: #666;
+}
+.single-shop>h4{
+    margin-top: 17px;
+    font-size: 14px;
+}
+.single-shop>p{
+    margin-top: 12px;
+}
+.single-shop>p a{
+    color: #999;
+}
+.single-shop>.price{
+    padding-top: 18px;
+    padding-bottom: 12px;
+    overflow: hidden;
+    border-bottom: 1px dashed #eee;
+    color:#999;
+}
+.single-shop>.price b{
+    font-size: 20px;
+    color: #f76120;
+}
+.single-shop>.pingjia{
+    text-align: right;
+}
+.single-shop>.pingjia>i{
+    display: inline-block;
+    width: 60px;
+    height: 12px;
+    background: url("../imgs/pingjia.png") no-repeat;
+    margin-top: 12px;
+}
+/* 美食页面底部 */
+.modle-end{
+    height: 48px;
+    line-height: 48px;
+    background-color: #f6f6f6;
+    text-align: center;
+}
+.modle-end>a{
+    text-decoration: none;
+    font-size: 14px;
+}
+.modle-end span{
+    color: #86d9e7;
+}
+/* 侧边导航 */
+.side-nav{
+    position: fixed;
+    left:15px;
+    top:0;
+    border: 1px solid#eee;
+    border-bottom: 0;
+    color:#666;
+    z-index:666;
+}
+.side-nav>li{
+    border-bottom: 1px solid #eee;
+    width:40px;
+    cursor: pointer;
+}
+.side-nav>li>i{
+    display: block;
+    background: url("../imgs/nav1-gray.png") no-repeat;
+    height: 35px;
+}
+.side-nav>li p{
+    text-align: center;
+    line-height: 18px;
+    padding:3px 5px 8px;
+}
+.side-nav>li:hover,.side-nav>li.first{
+    background-color: #2bb8aa;
+    color: #fff;
+}
+.side-nav>li:hover>i,.side-nav>li.first>i{
+    background-image: url("../imgs/nav1-white.png");
+}

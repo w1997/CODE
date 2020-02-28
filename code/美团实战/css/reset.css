@@ -65,3 +65,8 @@ hr {
 html { overflow-y: scroll; }
 
 strong {font-weight: normal;}
+.fl{float: left;}
+.fr{float:right;}
+body {font-size:12px; color:#666; font-family:"宋体";}
+a {color:#666;}
+a:hover {color:#2bb8aa;}

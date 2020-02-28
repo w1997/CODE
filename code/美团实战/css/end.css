@@ -1,0 +1,92 @@
+.tuijian{
+    padding-top: 42px;
+}
+.tuijian>ul{
+    border: 1px solid #eee;
+    border-right: 0;
+    overflow: hidden;
+    border-bottom: 0;
+}
+.tuijian>ul>li{
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    border-right: 1px  solid #eee;
+    padding: 6px 20px;
+    background-color:#f9f9f9;
+}
+.tuijian>ul>li.frist{
+    background-color: #eee;
+}
+.tuijian>ul>li>a{
+    font-size: 12px;
+    color: #666;
+}
+/* 各种团购 */
+.shopping{
+    clear: both;
+    border: 1px solid #eee;
+    background-color: #fff;
+    overflow: hidden;
+}
+.shopping>ul>li{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 16px;
+    padding-right: 25px;
+}
+.shopping>ul>li>a{
+    font-size:14px;
+    color: #666;
+}
+/* 页面底部 =============*/
+.wy-end{
+    margin-top: 19px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    overflow: hidden;
+}
+.wy-end>.fl>dl{
+    float: left;
+    height: 220px;
+}
+.wy-end>.fl>dl.first{
+    padding-left: 10px;
+}
+.wy-end>.fl>dl>dt{
+    font-size: 16px;
+    font-weight: bold;
+    color:#666;
+    padding-bottom: 20px;
+}
+.wy-end>.fl>dl>dd{
+    line-height: 2;
+    font-size:12px;
+    color: #999;
+}
+/* .wy-end>.fl>dl.last{ 
+    border-right: 1px solid #eee;
+} */
+/* 客服电话 */
+
+.wy-end>.fr>img{
+    display: block;
+    height:180px;
+    width: 307px;
+    margin-top: -20px;
+}
+/* 版权 */
+ .footer{
+    clear: both;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    height:44px;
+    background-color: #f9f9f9;
+}
+.footer>p{
+    color: #999;
+    padding-top: 30px;
+    font-size: 14px;
+}

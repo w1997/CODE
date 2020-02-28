@@ -4,112 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>美团页面</title>
-    <!-- <style>
-        #nav{
-           height: 40px;
-           color:#fff;
-           background-color: #2bb8aa; 
-        }
-        #nav a{
-            color: #fff;
-            text-decoration: none;
-        }
-        #nav>h2{
-            width: 230px;
-            padding-left: 15px;
-            background-color: #1caf9a;
-            position: relative;
-            height: 100%;
-            line-height: 40px;
-        }
-        #nav>h2:hover .subnav{
-            display: block;
-        }
-        #nav>.list{}
-        #nav>.list>li{
-            height:40px;
-            line-height: 40px;
-            padding:0px 23px;
-        }
-        #nav>.list>li>a{
-            font-size: 14px;
-            font-weight: bold;
-        }
-        #nav>.list>li:hover{
-            background-color: #00c3b0;
-        }
-        /* 侧边导航 */
-        #nav.subnav{
-            background: #fafafa;
-            position: absolute;
-            top: 40px;
-            left: 0;
-            right: 0;
-        }
-        #nav .subnav .list li a{
-            color: #000;
-        }
-        #nav .subnav a .fr{
-            color:#999;
-            font-size: 12px;
-        }
-        #nav .subnav>.list{
-            border: 1px solid #eee;
-            border-top: 0;
-            height: 477px;
-        }
-        #nav .subnav>.list>li{
-            padding-left: 30px;
-            padding-right: 10px;
-            border-bottom: 1px solid #eee;
-            height: 52px;
-            line-height: 52px;
-            position: relative;
-        }
-        #nav .subnav>.list>li>span{
-            position: absolute;
-            right: 16px;
-            top: 0;
-            color: #999;
-        }
-        #nav .subnav>.list>li>.line{
-            position: absolute;
-        }
-        #nav .subnav>.list>li>.t{
-            width: 1px;
-            background-color: #fff;
-            top: 0;
-            right: -1px;
-            height: 52px;
-        }
-        #nav .subnav>.list>li>.l{
-            width: 14px;
-            height: 1px;
-            background: #fff;
-            right: 0px;
-            bottom:-1px;
-        }
-        #nav .subnav>.list .dis{
-            display: none;
-        }
-        #nav .subnav>.list>li:hover .dis{
-            display: block;
-        }
-        #nav .subnav>.list>li:hover span{
-            display: none;
-        }
-        .threenav{
-            position: absolute;
-            left: 246px;
-            height: 477x;
-            background-color: #fff;
-            width:200px;
-            top:0;
-            border-bottom: 1px solid;
-        }
-    </style> -->
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/top.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/recommend.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/end.css">
 </head>
 <body>
     <!--页面整体 start  -->
@@ -218,7 +118,7 @@
                      <input type="text" placeholder="请输入商家名称、地址等">  
                      <button class="sousuo">搜索</button>
                     </div>
-                     <div>
+                     <div class="href-list">
                          <a href="#">虾吃虾涮</a>
                          <a href="#">比格</a>
                          <a href="#">大鱼</a>
@@ -232,18 +132,18 @@
                 </div>
                  <ul class="tui fr">
                      <li>
-                        <img src="" alt="">
-                        <a href=""></a>
+                        <a href="#"></a>
+                        <img src="./imgs/tui.png" alt="">
                         <p>随时退</p>
                      </li>
                      <li>
-                        <img src="" alt="">
-                        <a href=""></a>
+                        <a href="#"></a>
+                        <img src="./imgs/manyi.png" alt="">
                         <p>不满意免单</p>
                      </li>
                      <li>
-                        <img src="" alt="">
-                        <a href=""></a>
+                        <a href="#"></a>
+                        <img src="./imgs/guoqi.png" alt="">
                         <p>过期退</p>
                      </li>
                  </ul>
@@ -251,10 +151,9 @@
          <!-- 页面logo end   -->
 
          <!-- 页面导航 nav start -->
-         <!-- <div class="w1170 bc" id="nav">
+         <div class="w1170 bc" id="nav">
             <h2 class="fl">
                 <a href="#">全部分类</a>
-                
                 <div class="subnav">
                     <ul class="list">
                         <li>
@@ -265,73 +164,523 @@
                             <div class="line l dis"></div>
                             <span>></span>
                         </li>
-                       
-                        <ul class="threenav">
+                       <!-- 三级导航 -->
+                        <ul class="threenav dis">
 
                         </ul>
-                        
+                        <!-- 三级导航 end -->
                         <li>
                             <a href="#" class="fl">酒店/客栈</a>
                             <a href="#" class="fr">经济型酒店</a>
+                            <div class="line t dis"></div>
+                            <div class="line l dis"></div>
                             <span>></span>
                         </li>
-                        
-                        <ul class="threenav">
+                        <!-- 三级导航 start-->
+                        <ul class="threenav dis">
                             
                         </ul>
-                      
+                      <!-- 三级导航 end -->
                         <li>
                             <a href="#" class="fl">猫眼电影/在线选座</a>
+                            <div class="line t dis"></div>
+                            <div class="line l dis"></div>
                             <span>></span>
                         </li>
-                        
-                        <ul class="threenav">
+                        <!-- 三级导航 start-->
+                        <ul class="threenav dis">
                             
                         </ul>
-                       
+                       <!-- 三级导航 end -->
                         <li>
                             <a href="#" class="fl">KTV</a>
+                            <div class="line t dis"></div>
+                            <div class="line l dis"></div>
                             <span>></span>
                         </li>
-                       
-                        <ul class="threenav">
+                       <!-- 三级导航 start-->
+                        <ul class="threenav dis">
                             
                         </ul>
-                        
+                        <!-- 三级导航 end -->
                         <li>
                             <a href="#" class="fl">休闲娱乐</a>
                             <a href="#" class="fr">温泉</a>
-                            <a href="#" class="fr">足疗</a>
+                            <a href="#" class="fr">足疗按摩&nbsp;</a>
+                            <div class="line t dis"></div>
+                            <div class="line l dis"></div>
                             <span>></span>
                         </li>
-                        
-                        <ul class="threenav">
+                        <!-- 三级导航 start-->
+                        <ul class="threenav dis">
                             
                         </ul>
-                        
+                        <!-- 三级导航 end -->
                         <li>
-                            <a href="#" class="fl">休闲娱乐</a>
-                            <a href="#" class="fl">温泉</a>
-                            <a href="#" class="fl">足疗</a>
+                            <a href="#" class="fl">周边游/旅游</a>
+                            <div class="line t dis"></div>
+                            <div class="line l dis"></div>
                             <span>></span>
                         </li>
-                        
-                        <ul class="threenav">
+                        <!-- 三级导航 start -->
+                        <ul class="threenav dis">
                             
                         </ul>
-                       
+                       <!-- 三级导航 end -->
+                       <li>
+                        <a href="#" class="fl">机票</a>
+                        <a href="#" class="fr">国际机票</a>
+                        <a href="#" class="fr">国内机票&nbsp;</a>
+                        <div class="line t dis"></div>
+                        <div class="line l dis"></div>
+                        <span>></span>
+                    </li>
+                    <!-- 三级导航 start-->
+                    <ul class="threenav dis">
+                        
+                    </ul>
+                    <!-- 三级导航 end -->
+                    <li>
+                        <a href="#" class="fl">生活</a>
+                        <a href="#" class="fr">个性写真</a>
+                        <a href="#" class="fr">婚纱摄影&nbsp;</a>
+                        <div class="line t dis"></div>
+                        <div class="line l dis"></div>
+                        <span>></span>
+                    </li>
+                    <!-- 三级导航 start-->
+                    <ul class="threenav dis">
+                        
+                    </ul>
+                    <!-- 三级导航 end -->
+                    <li>
+                        <a href="#" class="fl">丽人</a>
+                        <a href="#" class="fr">美甲美睫</a>
+                        <a href="#" class="fr">美发&nbsp;</a>
+                        <div class="line t dis"></div>
+                        <div class="line l dis"></div>
+                        <span>></span>
+                    </li>
+                    <!-- 三级导航 start-->
+                    <ul class="threenav dis">
+                        
+                    </ul>
+                    <!-- 三级导航 end -->
                     </ul>
                 </div>
             </h2>
-            
             <ul class="list fl">
                 <li class="fl"><a href="#">首页</a></li>
                 <li class="fl"><a href="#">今日新单</a></li>
                 <li class="fl"><a href="#">美食</a></li>
                 <li class="fl"><a href="#">身边外卖</a></li>
             </ul>
-         </div> -->
+         </div>
          <!-- 页面导航 nav end -->
+
+         <!-- recommend start -->
+         <div class="w1170 bc" id="recommend">
+             <div class="recommend">
+                 <div class="fl">
+                     <ul class="list">
+                         <li>
+                             <i class="hot"></i>
+                             <a href="#">热门团购</a>
+                             <a href="#">自助餐</a>
+                             <a href="#">火锅</a>
+                             <a href="#">小吃快餐</a>
+                             <a href="#">烧烤烤肉</a>
+                             <a href="#">西餐</a>
+                             <a href="#">日韩料理</a>
+                             <a href="#">甜点饮品</a>
+                             <a href="#">香锅烤鱼</a>
+                             <a href="#">海鲜</a>
+                         </li>
+                         <li>
+                            <i class="area"></i>
+                            <a href="#">全部区域</a>
+                            <a href="#">朝阳区</a>
+                            <a href="#">海淀区</a>
+                            <a href="#">丰台区</a>
+                            <a href="#">西城区</a>
+                            <a href="#">东城区</a>
+                            <a href="#">昌平区</a>
+                            <a href="#">石景山区</a>
+                            <a href="#">通州区</a>
+                            <a href="#">大兴区</a>
+                        </li>
+                        <li>
+                            <i class="business"></i>
+                            <a href="#">热门商圈</a>
+                            <a href="#">望京</a>
+                            <a href="#">昌平镇</a>
+                            <a href="#">亦庄</a>
+                            <a href="#">中关村</a>
+                            <a href="#">远大路</a>
+                            <a href="#">西红门</a>
+                            <a href="#">双井</a>
+                            <a href="#">大望路</a>
+                            <a href="#">黄村</a>
+                            <a href="#">牡丹园/北太平庄</a>
+                        </li>
+                     </ul>
+                     <div class="show">
+                         <ul class="shop" id="shop">
+                             <li>
+                                 <div class="single-recomment fl">
+                                     <img src="./imgs/tuijian1.png" alt="">
+                                     <h4><a href="#">南京大排档</a></h4>
+                                     <p>100元代金券一张，可叠加使用，可免</p>
+                                     <div class="price">￥85</div>
+                                 </div>
+                                 <div class="single-recomment-line fr">
+                                     <img src="./imgs/tuijian2.png" alt="">
+                                     <h4><a href="#">上海小南国</a></h4>
+                                     <p>100元代金券一张，可叠加使用</p>
+                                     <div class="price">￥85</div>
+                                 </div>
+                             </li>
+                             <li>
+                                <div class="single-recomment fl">
+                                    <img src="./imgs/tuijian3.png" alt="">
+                                    <h4><a href="#">南京大排档</a></h4>
+                                    <p>100元代金券一张，可叠加使用，可免</p>
+                                    <div class="price">￥85</div>
+                                </div>
+                                <div class="single-recomment-line fr">
+                                    <img src="./imgs/tuijian4.png" alt="">
+                                    <h4><a href="#">上海小南国</a></h4>
+                                    <p>100元代金券一张，可叠加使用</p>
+                                    <div class="price">￥85</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="single-recomment fl">
+                                    <img src="./imgs/tuijian5.png" alt="">
+                                    <h4><a href="#">南京大排档</a></h4>
+                                    <p>100元代金券一张，可叠加使用，可免</p>
+                                    <div class="price">￥85</div>
+                                </div>
+                                <div class="single-recomment-line fr">
+                                    <img src="./imgs/tuijian6.png" alt="">
+                                    <h4><a href="#">上海小南国</a></h4>
+                                    <p>100元代金券一张，可叠加使用</p>
+                                    <div class="price">￥85</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="single-recomment fl">
+                                    <img src="./imgs/tuijian7.png" alt="">
+                                    <h4><a href="#">南京大排档</a></h4>
+                                    <p>100元代金券一张，可叠加使用，可免</p>
+                                    <div class="price">￥85</div>
+                                </div>
+                                <div class="single-recomment-line fr">
+                                    <img src="./imgs/tuijian8.png" alt="">
+                                    <h4><a href="#">上海小南国</a></h4>
+                                    <p>100元代金券一张，可叠加使用</p>
+                                    <div class="price">￥85</div>
+                                </div>
+                            </li>
+                         </ul>
+                         <div class="btnleft" id="btnLeft"></div>
+                        <div class="btnRight"></div> 
+                     </div>
+                 </div>
+         <div class="fr">
+             <div class="eat">
+                 <img src="./imgs/1yuan.png" alt="">
+             </div>
+             <div class="new">
+                 <img src="./imgs/meiri.png" alt="">
+             </div>
+         </div>
+        </div>
+    </div>
+         <!-- recommend end -->
+
+         <!-- 侧边导航和美食区域 start-->
+         <div class="w1170"id="finefood">
+                <div class="modle-title">
+                    <h3 class="fl">
+                        <i></i>
+                        <a href="#">美食</a>
+                    </h3>
+                    <ul class="fr">
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">代金券</a></li>
+                        <li><a href="#">自助餐</a></li>
+                        <li><a href="#">火锅</a></li>
+                        <li><a href="#">烧烤烤肉</a></li>
+                        <li><a href="#">香锅烤鱼</a></li>
+                        <li><a href="#">西餐</a></li>
+                        <li><a href="#" class="all">全部></a></li>
+                    </ul>
+                </div>
+                <!-- 美食主体 -->
+                <div class="modle-content">
+                    <!-- 侧边导航start -->
+                    <ul class="side-nav">
+                        <li class="first">
+                            <i></i>
+                            <p>美食</p>
+                        </li>
+                        <li>
+                            <i></i>
+                            <p>休闲娱乐</p>
+                        </li>
+                        <li>
+                            <i></i>
+                            <p>猫眼电影</p>
+                        </li>
+                        <li>
+                            <i></i>
+                            <p>酒店</p>
+                        </li>
+                        <li>
+                            <i></i>
+                            <p>生活服务</p>
+                        </li>
+                    </ul>
+                    <!-- 侧边导航end-->
+
+                    <!-- 美食商品start-->
+                    <div class="single-shop fl">
+                        <a href="#"><img src="./imgs/shop1.webp" alt=""></a>
+                        <h4><a href="#">【顺义城区】比亚森</a></h4>
+                        <p><a href="#">午餐晚餐单人自助，提供免费WiFi</a></p>
+                        <ul class="price">
+                           <li class="fl">
+                               <b>￥59.6</b>
+                               <span>门店价&nbsp;<del>65</del></span>
+                           </li>
+                           <li class="fr">
+                            已售<span>2977</span>
+                           </li>
+                        </ul>
+                        <div class="pingjia">
+                            <i></i>
+                            <span>39人评价</span>
+                        </div>
+                    </div>
+                    <div class="single-shop fl">
+                        <a href="#"><img src="./imgs/shop1.webp" alt=""></a>
+                        <h4><a href="#">【顺义城区】比亚森</a></h4>
+                        <p><a href="#">午餐晚餐单人自助，提供免费WiFi</a></p>
+                        <ul class="price">
+                           <li class="fl">
+                               <b>￥59.6</b>
+                               <span>门店价&nbsp;<del>65</del></span>
+                           </li>
+                           <li class="fr">
+                            已售<span>2977</span>
+                           </li>
+                        </ul>
+                        <div class="pingjia">
+                            <i></i>
+                            <span>39人评价</span>
+                        </div>
+                    </div>
+                    <div class="single-shop fl">
+                        <a href="#"><img src="./imgs/shop1.webp" alt=""></a>
+                        <h4><a href="#">【顺义城区】比亚森</a></h4>
+                        <p><a href="#">午餐晚餐单人自助，提供免费WiFi</a></p>
+                        <ul class="price">
+                           <li class="fl">
+                               <b>￥59.6</b>
+                               <span>门店价&nbsp;<del>65</del></span>
+                           </li>
+                           <li class="fr">
+                            已售<span>2977</span>
+                           </li>
+                        </ul>
+                        <div class="pingjia">
+                            <i></i>
+                            <span>39人评价</span>
+                        </div>
+                    </div>
+                    <div class="single-shop fl">
+                        <a href="#"><img src="./imgs/shop1.webp" alt=""></a>
+                        <h4><a href="#">【顺义城区】比亚森</a></h4>
+                        <p><a href="#">午餐晚餐单人自助，提供免费WiFi</a></p>
+                        <ul class="price">
+                           <li class="fl">
+                               <b>￥59.6</b>
+                               <span>门店价&nbsp;<del>65</del></span>
+                           </li>
+                           <li class="fr">
+                            <span>已售2977</span>
+                           </li>
+                        </ul>
+                        <div class="pingjia">
+                            <i></i>
+                            <span>39人评价</span>
+                        </div>
+                    </div>
+                    <div class="single-shop fl">
+                        <a href="#"><img src="./imgs/shop1.webp" alt=""></a>
+                        <h4><a href="#">【顺义城区】比亚森</a></h4>
+                        <p><a href="#">午餐晚餐单人自助，提供免费WiFi</a></p>
+                        <ul class="price">
+                           <li class="fl">
+                               <b>￥59.6</b>
+                               <span>门店价&nbsp;<del>65</del></span>
+                           </li>
+                           <li class="fr">
+                            <span>已售2977</span>
+                           </li>
+                        </ul>
+                        <div class="pingjia">
+                            <i></i>
+                            <span>39人评价</span>
+                        </div>
+                    </div>
+                    <div class="single-shop fl">
+                        <a href="#"><img src="./imgs/shop1.webp" alt=""></a>
+                        <h4><a href="#">【顺义城区】比亚森</a></h4>
+                        <p><a href="#">午餐晚餐单人自助，提供免费WiFi</a></p>
+                        <ul class="price">
+                           <li class="fl">
+                               <b>￥59.6</b>
+                               <span>门店价&nbsp;<del>65</del></span>
+                           </li>
+                           <li class="fr">
+                            <span>已售2977</span>
+                           </li>
+                        </ul>
+                        <div class="pingjia">
+                            <i></i>
+                            <span>39人评价</span>
+                        </div>
+                    </div>
+                    <div class="single-shop fl">
+                        <a href="#"><img src="./imgs/shop1.webp" alt=""></a>
+                        <h4><a href="#">【顺义城区】比亚森</a></h4>
+                        <p><a href="#">午餐晚餐单人自助，提供免费WiFi</a></p>
+                        <ul class="price">
+                           <li class="fl">
+                               <b>￥59.6</b>
+                               <span>门店价&nbsp;<del>65</del></span>
+                           </li>
+                           <li class="fr">
+                            <span>已售2977</span>
+                           </li>
+                        </ul>
+                        <div class="pingjia">
+                            <i></i>
+                            <span>39人评价</span>
+                        </div>
+                    </div>
+                    <div class="single-shop fl">
+                        <a href="#"><img src="./imgs/shop1.webp" alt=""></a>
+                        <h4><a href="#">【顺义城区】比亚森</a></h4>
+                        <p><a href="#">午餐晚餐单人自助，提供免费WiFi</a></p>
+                        <ul class="price">
+                           <li class="fl">
+                               <b>￥59.6</b>
+                               <span>门店价&nbsp;<del>65</del></span>
+                           </li>
+                           <li class="fr">
+                            <span>已售2977</span>
+                           </li>
+                        </ul>
+                        <div class="pingjia">
+                            <i></i>
+                            <span>39人评价</span>
+                        </div>
+                    </div>
+                    <!-- 美食商品end -->
+                </div> 
+                <div class="modle-end">
+                    <a href="#">更多美食团购，请点击查看<span> ></span></a>
+                </div>
+         </div>
+         <!-- 侧边导航和美食区域 end -->
+
+         <!-- 页面底部start -->
+         <!-- 各种团购start -->
+         <div class="w1170 qita">
+             <div class="tuijian">
+                <ul>
+                    <li class="frist"><a href="#">团购分类</a></li>
+                    <li><a href="#">今日新单</a></li>
+                    <li><a href="#">周边城市</a></li>
+                    <li><a href="#">品牌推荐</a></li>
+                    <li><a href="#">专题推荐</a></li>
+                    <li><a href="#">品类推荐</a></li>
+                    <li><a href="#">友情链接</a></li>
+                </ul>
+             </div>
+             <div class="shopping">
+                <ul>
+                    <li><a href="#">美食团购</a></li>
+                    <li><a href="#">电影团购</a></li>
+                    <li><a href="#">休闲娱乐团购</a></li>
+                    <li><a href="#">旅游团购</a></li>
+                    <li><a href="#">生活服务团购</a></li>
+                    <li><a href="#">购物团购</a></li>
+                    <li><a href="#">丽人团购</a></li>
+                    <li><a href="#">团购评论</a></li>
+                    <li><a href="#">品牌团购</a></li>
+                    <li><a href="#">专题团购</a></li>
+                    <li><a href="#">美团团购</a></li>
+                </ul>
+             </div>
+         </div>
+         <!-- 各种团购end -->
+         <div class="w1170 wy-end"> 
+            <div class="fl">
+               <dl class="first" style="padding-right: 127px;">
+                   <dt>获取更新</dt>
+                   <dd>邮件订阅</dd>
+                   <dd>iPhone/Android</dd>
+                   <dd>美团QQ空间</dd>
+                   <dd>美团新浪微博</dd>
+                   <dd>sitemap</dd>
+                   <dd>RSS订阅</dd>
+               </dl>
+               <dl style="padding-right: 108px;">
+                <dt>商务合作</dt>
+                <dd>商家合作</dd>
+                <dd>美团商家营销平台</dd>
+                <dd>到店餐饮代理商招募</dd>
+                <dd>市场合作</dd>
+                <dd>美团联盟</dd>
+                <dd>美团云</dd>
+                <dd>廉正邮箱</dd>
+                <dd>聚宝盆餐饮开放平台</dd>
+                <dd>美团点评智能收银机</dd>
+            </dl>
+            <dl style="padding-right: 72px;">
+                <dt>公司信息</dt>
+                <dd>关于美团</dd>
+                <dd>美团承诺</dd>
+                <dd>媒体报道</dd>
+                <dd>加入我们</dd>
+                <dd>法律声明</dd>
+                <dd>用户协议</dd>
+                <dd>隐私政策</dd>
+                <dd>商户服务协议</dd>
+                <dd>美团点评餐饮安全管理办法</dd>
+            </dl>
+            <dl class="last" style="padding-right: 119px;">
+                <dt>用户帮助</dt>
+                <dd>申请退款</dd>
+                <dd>查看美团券密码</dd>
+                <dd>常见问题</dd>
+                <dd>开放API</dd>
+                <dd>反诈骗公告</dd>
+            </dl>
+            </div>
+            <div class="fr">
+               <img src="./imgs/footer-right.png" alt="">
+            </div>
+         </div>
+         <!-- 版权 -->
+         <div class=" w1170 footer">
+            <p>&copy 2017 美团网团购 meituan.com 京ICP证070791号|京ICP备10211739号|电子公告服务规则</p>
+        </div>
+         <!-- 页面底部end -->
     </div>
     <!--页面整体 end  -->        
 

@@ -1,0 +1,116 @@
+#nav {
+    height: 40px;
+    background-color: #2bb8aa;
+}
+#nav h2{
+    width:246px;
+}
+#nav h2>a{
+    color:#fff;
+    height:40px;
+    line-height: 40px;
+    padding-left: 16px;
+    background-color: #1caf9a;
+}
+#nav a{
+    text-decoration: none;
+}
+#nav{
+    position: relative;
+}
+#nav h2:hover .subnav{
+    display: block;
+}
+/* 左边导航 */
+#nav .subnav{
+    margin-top:4px;
+    background-color: #fafafa;
+    top:40px;
+    left: 0;
+    right: 0;
+}
+#nav .subnav .list>li{
+    padding-left: 16px;
+    padding-top:10px;
+    padding-right: 30px;
+    height: 42px;
+    line-height: 42px;
+    position: relative;
+    border-bottom: 1px solid #eee;
+}
+#nav .subnav .list li>a{
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+#nav .subnav .list li>a.fr{
+    color: #666;
+    font-size:14px;
+}
+#nav .subnav .list li>a.fl{
+    font-size:16px;
+}
+#nav .subnav .list>li>span{
+    display: block;
+    float: right;
+    position: absolute;
+    right: 16px;
+}
+#nav .subnav>.list>li .line{
+    position: absolute;
+}
+#nav .subnav>.list>li>.t{
+    width: 1px;
+    /* background-color:blue; */
+    background-color:#fff;
+    top: 0;
+    right: -1px;
+    height: 50px;
+}
+#nav .subnav>.list>li>.l{
+    width: 14px;
+    height: 1px;
+    background: #eee;
+    right: 0;
+    bottom: -1px;
+}
+#nav .subnav>.list .dis{
+    display: none;
+}
+#nav .subnav>.list>li:hover>.dis{
+    display: block;
+}
+#nav .subnav>.list>li:hover{
+    background-color:#fff;
+}
+#nav .subnav>.list>li:hover+ul.dis{
+    display: block;
+}
+#nav .subnav>.list>li:hover span{
+    display: none;
+}
+/* 三级导航 */
+.threenav{
+    position: absolute;
+    left: 248px;
+    height: 477px;
+    background-color: #fff;
+    width: 200px;
+    top: 41px;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    z-index: 999;
+    display: none;
+}
+/* 横向导航 */
+#nav>ul{
+    line-height: 40px;
+}
+#nav>ul li{
+    padding-left: 45px;
+}
+#nav>ul a{
+    font-size: 16px;
+    font-weight: bold;
+    color:#fff;
+}
