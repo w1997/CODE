@@ -1,0 +1,50 @@
+<!-- <script>
+    (function(){
+        var a=1;
+        var obj={
+            a:10,
+            f:function(){
+                a*=2;
+            }
+        }
+        obj.f()
+        alert(obj.a+a)
+    })();
+</script> -->
+<!-- <script>
+    window.a=1;
+    var obj={
+        a:10,
+        f:function(){
+            this.a*=2;
+            console.log(this.a)
+        }
+    }
+    obj.f()
+</script> -->
+<!-- <script>
+    var fullName="la";
+var obj={
+    fullName:"js",
+    prop:{
+        // fullName:"vue",
+        getFullName:function(){
+            return this.fullName;
+        }
+    }
+}
+// console.log(obj.prop.getFullName())
+var t=obj.prop.getFullName;
+console.log(t())
+</script> -->
+<script>
+    let obj={
+        fn:(function(){
+            return function(){
+                console.log(this)
+            }
+        })()
+    }
+   let t= obj.fn
+   t()
+</script>
