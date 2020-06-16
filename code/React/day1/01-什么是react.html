@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入核心库 -->
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // 创建一个jsx 虚拟DOM
+        let vDOM=<h1>欢迎学习React...</h1>
+        //把虚拟DOM渲染到页面上，变成真实DOM
+        ReactDOM.render(vDOM,document.getElementById("app"))
+    </script>
+</body>
+</html>

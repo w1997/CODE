@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态渲染数据</title>
+    <!-- 引入核心库 -->
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        let data=["angular","vue","react"]
+        let a="xxx"
+        let h111 = (
+            <div>
+            <h2>前端常见的js框架列表</h2>
+            <ul>{
+                /* data.map((item,index)=>{
+                    return <li key={index}>{item}</li>
+                    // return <li>{item}</li> 如果不加key会报错，页面正常显示
+                }) */
+                //可以简写为
+                data.map((item,index)=><li key={index}>{item}</li>)
+            }</ul>
+            </div>
+        )
+        ReactDOM.render(h111,document.getElementById("app"))
+    </script>
+</body>
+</html>

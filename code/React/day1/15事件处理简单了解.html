@@ -1,0 +1,43 @@
+ <!-- 
+    事件处理：
+        在react中事件都是通过onXxx属性指定组件事件处理函数，需要注意大小写。
+
+    React中使用的是合成事件（自定义事件），不是使用的原生DOM事件。
+
+    例子：
+        <button onclick="fn">点击</button>  原生DOM事件
+
+        此处的onClick是React中内部自己实现的事件  不是原生事件 
+        <button onClick={this.clickHandle}>获取输入框中的内容</button>
+    
+    React中的事件是通过事件委托方式处理的，委托给组件最外层的元素。
+
+    事件对象：
+        监听器第1个参数就表示事件对象
+
+    事件冒泡
+
+    默认事件 
+
+    .... 
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script src="../js/react.development.js"></script>
+     <script src="../js/react-dom.development.js"></script>
+     <script src="../js/babel.min.js"></script>
+     <!-- 引入prop-types，用于限制传递属性类型，必要性等等 -->
+     <script src="../js/prop-types.js"></script>
+ </head>
+ <body>
+     <div id="app"></div>
+     <script type="text/babel">
+        
+        ReactDOM.render(<MyComponent/>,document.getElementById("app"));
+     </script>
+ </body>
+ </html>

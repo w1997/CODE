@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入核心库 -->
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // 通过函数的形式定义组件
+        function MyComponent(){
+            return (
+                <div>
+                <h2>我是通过函数创建组件，是没有状态的</h2>
+                <Hi />
+                //<Hi></Hi>
+                </div>
+            )
+        }
+        function Hi(){
+            return(
+                <h3>这是Hi组件</h3>
+            )
+        }
+        ReactDOM.render(<MyComponent />,document.getElementById("app"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入核心库 -->
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+       class MyComponent extends React.Component{
+           constructor(props){
+               super(props)
+               this.state={
+                   isHot:false
+               }
+               this.clickHandle = this.clickHandle.bind(this)
+           }
+           clickHandle(){
+               console.log(this)
+               let { isHot } = this.state
+                this.setState({
+                    isHot:!isHot
+                })
+           }
+           render(){
+            let { isHot } = this.state
+                // return <h1>今天天气很{this.state.isHot?"炎热":"凉爽"}</h1>
+                return <h1 onClick={this.clickHandle}>今天天气很{isHot?"炎热":"凉爽"} </h1>
+            }
+           }
+      
+        ReactDOM.render(<MyComponent />,document.getElementById("app"));
+    </script>
+</body>
+</html>

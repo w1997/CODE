@@ -1,0 +1,74 @@
+<!-- <script>
+    function Fn(){
+        this.x=100;
+        this.y=200;
+        this.getX=function(){
+            console.log(this.x)
+        }
+    }
+    Fn.prototype.getX=function(){
+        console.log(this.x)
+    }
+    Fn.prototype.getY=function(){
+        console.log(this.y)
+    }
+    let f1=new Fn;
+    let f2 =new Fn;
+</script> -->
+<script>
+    // 情况一：把函数当作一个普通函数
+    /* function f(){
+        console.log("xxx")
+    }
+    f()//调用函数 */
+    //情况二：把函数当作一个方法，位于一个对象中
+    /* let obj={
+        say:function(){
+            console.log("say...")
+        },
+        sleep(){
+            console.log("sleep...")
+        }
+    }
+    obj.say();//say...
+    obj.sleep();//sleep... */
+    //情况三：把函数当作类，通常把函数大写
+   /*  function g(){
+        console.log("g...")
+    }
+    let o=new g();//g...
+    console.log(o);//得到的是一个对象 */
+</script>
+<script>
+    //如果把函数当做类，通常会把函数名大写
+    /* function F(){
+        console.log("f...")
+    } */
+    //F()//普通函数调用 f...
+    // let o =new F();//f...
+</script>
+<script>
+    //如果把函数当作一个类，最好不要在称之为函数，可以叫它为某某类或者构造器
+    //只要new了一个函数，最终不管你返回值是什么，结果都是返回一个对象
+   /*  function F(a,b){
+        return a+b;
+    }
+    let o=new F(1,2)
+    console.log(o)//F{} */
+</script>
+<!-- <script>
+    //如何给o对象上添加属性，对象是属性的无序集合
+    function F(name,age){
+        //第一步：只要new，代码进来后，它先创建一个对象（堆内存）
+        //第二步：this指向这个对象
+        this.name=name;//this.xxx=xxx给对象设置私有属性或者方法
+        this.age=age;
+        //第三步：会返回这个对象
+    }
+    let o=new F('小明',100);
+    console.log(o)//F {name: "小明", age: 100}
+    console.log(typeof o);//object
+</script> -->
+<script>
+    
+</script>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <!-- 引入prop-types，用于限制传递属性类型，必要性等等 -->
+    <script src="../js/prop-types.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+       class App extends React.Component{
+           state={
+               todoArr:["吃饭","睡觉","打代码"]
+           }
+           addTodo=(todo)=>{
+               let{todoArr}=this.state
+               todoArr.unshift(todo)
+               this.setState({
+                   todoArr:todoArr
+               })
+           }
+           render(){
+               let {todoArr}=this.state
+               return (
+                   <div>
+                        <h1>todo mvc</h1>
+                        <Add addTodo={this.addTodo}/>
+                        <List  listTodo={todoArr}/>
+                        
+                   </div>
+               )
+           }
+       }
+       class List extends React.Component{
+           render(){
+               let{listTodo}=this.props
+               return(
+                   <ul>
+                   {listTodo.map((item,index)=>{
+                    return <li key={index}>{item}</li>
+                   })}
+                   </ul>
+               )
+           }
+       }
+       class Add extends React.Component{
+               add=()=>{
+                   // 接收传递过来的方法
+                   let{addTodo}=this.props
+                   //获取input框的内容
+                   let userInput=this.refs.inp.value
+                   if(userInput.trim()==='')return
+                    addTodo(userInput)
+                    this.refs.inp.value=""
+               }
+               render(){
+                return(
+                  <div>
+                        <input type="text" ref="inp"/>
+                        <button onClick={this.add}>添加一条TODO</button>
+                  </div>
+               )
+               }
+           }
+ 
+       ReactDOM.render(<App/>,document.getElementById("app"));
+    </script>
+</body>
+</html>
