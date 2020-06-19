@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/axios.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class App extends React.Component{
+            state={
+                repoName:"",//仓库的名字
+                repoUrl:"",//仓库的地址
+                isLoading:true,//控制是否显示loading
+                error:"",//错误信息
+                keyWord:"react",
+            }
+            componentDidMount(){
+                const url = `https://api.github.com/search/repositories?q=${this.state.keyWord}&sort=starts`;
+                axios.get(url).then((value)=>{
+                    console.log(value)
+                    let{full_name,html_url}=value.data.item[0];//排名第一仓库
+                    this.setState({
+                        repoName:full_name,
+                        repoUrl:html_url,
+                        isLoading:false
+                    })
+                }).catch((reason)=>{
+                    this.setState({
+                        error:reason.message,
+                        isLoading:false
+                    })
+                })
+            }
+            render(){
+                let {repoName,repoUrl,isLoading,keyWord,error}=this.state
+                if(isLoading){
+                    return <h1>正在加载中。。。</h1>
+                }else if(repoName && repoUrl && !error){
+                    return (
+                        <h1>在github上{this.state.keyWord}仓库中，点赞最多的是
+                            <a href={repoUrl}>{this.state.repoName}</a>
+                            </h1>
+                    )
+                }else{
+                    return <h1 style={{color:"red"}}>{error}</h1>
+                }
+            }
+        }
+        ReactDOM.render(<App/>,document.getElementById("app"))
+    </script> 
+</body>
+</html>
