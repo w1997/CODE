@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/redux.js"></script>
+</head>
+<body>
+    <script>
+        //1.准备状态
+        let initState={
+            todos:[
+                {text:"学习VUE",done:false},
+                {text:"学习React",done:true},
+                {text:"学习JS",done:false},
+            ],
+            visibility:"all"
+        }
+        //2.准备action creator
+        function addTodo(text){
+            return{
+                type:"ADD_TODO",
+                text
+            }
+        }
+        function toggleTodo(todo){
+            return{
+                type:"TOGGLE_TODO",
+                todo
+            }
+        } 
+        function setVisibility(fliter){
+            return {
+                type:"SET_VISIBILITY",
+                fliter
+            }
+        }
+    //3准备reducer  注：不能修改state和action
+    function reducer(state=initState,action){
+        switch(action.type){
+            case "ADD_TODO":
+                var item = [ ...state.todos,{text:action.text,done:false}];
+                return Object.assign({},state,{todos:item}) ;
+            case "TOGGLE_TODO":
+                var abc=state.todos.map((item)=>{
+                    if(item ===action.todo){
+                    return Object.assign({},item,{done:!item.done})
+                    }
+                    return item
+                })
+                //{}里面放的是键值对，当键和值一样时{todos：todos}，可以缩写成{todos}
+                return Object.assign({},state,{todos:abc}) ;
+            case "SET_VISIBILITY":  
+                return  Object.assign({},state,{visibility:action.fliter});
+            default:
+                return state;
+        }
+    }
+    //4创建store
+    let store=Redux.createStore(reducer);
+    //5使用store
+    // console.log(store.getState())
+    //6订阅
+    store.subscribe(()=>{
+        console.log(store.getState())
+    })
+    //7修改状态
+    store.dispatch(addTodo("学习小程序"));
+    store.dispatch(toggleTodo(store.getState().todos[2]));
+    store.dispatch(setVisibility("completed"))
+    </script>
+</body>
+</html>

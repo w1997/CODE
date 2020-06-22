@@ -88,7 +88,7 @@
 ### redux 的初步了解
 + redux是什么:
          这是一个状态管理机。追踪到状态的变化
-         redux并不是专门应用到react的，你可以在任何地方使用，甚至你可以在原生js中使用redux，你还可以在jq中使用redux，你还可以在vue中使用rudex。
+         redux并不是专门应用到react的，你可以在任何地方使用，甚至你可以在原生js中使用redux，你还可以在jq中使用redux，你还可以在vue中使用redux。
          redux是一个独立的状态管理器。
 + 三大原则：
     1）单一数据源：整个应用state被存储在store中。

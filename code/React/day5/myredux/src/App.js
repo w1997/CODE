@@ -11,16 +11,16 @@ class App extends Component{
     let value=this.myRef.current.value;
     this.props.store.dispatch(createIncrementAction(value*1))
     //订阅
-    this.props.store.subscribe(()=>{
+   /*  this.props.store.subscribe(()=>{
       console.log(this.props.store.getState())
-  })
+  }) */
   }
   decrement=()=>{
     let value=this.myRef.current.value;
     this.props.store.dispatch(createDecrementAction(value*1))
-    this.props.store.subscribe(()=>{
+    /* this.props.store.subscribe(()=>{
         console.log(this.props.store.getState())
-    })
+    }) */
   }
   incrementAsync=()=>{
     let value=this.myRef.current.value;

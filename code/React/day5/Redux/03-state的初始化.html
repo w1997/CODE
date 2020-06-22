@@ -1,0 +1,80 @@
+<!-- 关于state的初始化：
+        可以在两个地方对state进行初始化。
+        1）创建reducer时进行初始化
+            function reducer(state=initState, action)
+        2）也可以在创建store时进行初始化
+            let store = Redux.createStore(reducer,initState)
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/redux.js"></script>
+</head>
+<body>
+    <script>
+        //1.准备状态
+        let initState={
+        todos:[
+            {text:"学习react",done:false},
+            {text:"学习vue",done:false},
+            {text:"学习js",done:true},
+        ],
+        visibility:"all"
+    }
+    //2.准备action creator
+        function addTodo(text){
+            return{
+                type:"ADD_TODO",
+                text
+            }
+        }
+        function toggleTodo(todo){
+            return{
+                type:"TOGGLE_TODO",
+                todo
+            }
+        }
+        function setVisibility(filter){
+            return{
+                type:"SET_VISIBILITY",
+                filter
+            }
+        }
+        //3.准备reducer
+        function reducer(state,action){
+            switch(action.type){
+                case "ADD_TODO":
+                    var todos=[...state.todos,{text:action.text,done:false}];
+                    return Object.assign({},state,{todos});
+                case "TOGGLE_TODO":
+                    var todos=state.todos.map((todo)=>{
+                        if(todo==action.todo){
+                            return Object.assign({},state,{done:!todo.done})
+                        }
+                        return todo;
+                    })
+                    return Object.assign({},state,{todos})
+                case "SET_VISIBILITY":
+                    return Object.assign({},state,{visibility:action.filter})
+                default:
+                    return state;
+            }
+        }
+        //4.创建store
+        let store=Redux.createStore(reducer,initState)
+        //5.使用store
+        console.log(store.getState())
+        //6.订阅
+        store.subscribe(()=>{
+            console.log(store.getState())
+        })
+        //7.修改状态
+        store.dispatch(addTodo("敲代码"));
+        store.dispatch(toggleTodo(store.getState().todos[3]));
+        store.dispatch(setVisibility("active"))
+    </script>
+</body>
+</html>
