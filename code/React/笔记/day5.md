@@ -222,6 +222,22 @@ object.assign(ol,{b:3},{c:4})
       store.dispatch(addTodo("学习小程序"));
       store.dispatch(toggleTodo(store.getState().todos[2]));
       store.dispatch(setVisibility("completed"))
-      ```
+
+    ```
+### 概念笔记  
+想要动态变换，向reducer发送指令的是action，action可以携带数据；
++ action和action creator是有区别的
+  1）action和action creator这两个概念是不一样的。action就是一个普通的对象，必须要有一个type属性。action creator是一个函数，用来生成action对象。
+  2）在action对象中，除了type属性是写死的，其它的结构，完全由开发者定义。
+### 利用redux，react，react-redux写一个简单的计数器
+1）创建一个reduxstu项目 create-react-app reduxstu
+2）在src文件夹下创建actions、components、containers、reducers、store文件夹，App.js、index.js文件
+在actions文件下创建counter.js文件
+在components文件夹下创建Add.js、Show.js、Sub.js文件
+在containers文件夹下创建Counter.js文件
+在reducers文件夹下创建counter.js和index.js文件
+在store文件夹下创建index.js文件
+
+
 
 
