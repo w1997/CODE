@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 export default class AddTodo extends Component{
     //验证规则
     static  propTypes={
-        addTodo:PropTypes.array.isRequired,
+        addTodo:PropTypes.func.isRequired,
     }
     handlKeyUp(e){
         let content=e.target.value.trim();

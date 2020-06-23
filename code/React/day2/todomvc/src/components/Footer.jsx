@@ -3,13 +3,14 @@ export default class Fooer extends Component{
     render(){
         return(
             <footer className="footer">
-                <span className="todo-count"><strong>1</strong>item left</span>
+                <span className="todo-count"><strong>{this.props.leftTodos} &nbsp;</strong>item left</span>
                 <ul className="filters">
-                    <li><a href="" className="selected">all</a></li>
-                    <li><a href="">active</a></li>
-                    <li><a href="">completed</a></li>
+                    <li><a href="javascript:;" className={this.props.visibility=='all'?'selected':''} onClick={()=>this.props.setVisibility('all')}>all</a></li>
+                    <li><a href="javascript:;" className={this.props.visibility=='active'?'selected':''} onClick={()=>this.props.setVisibility('active')}>active</a></li>
+                    <li><a href="javascript:;" className={this.props.visibility=='completed'?'selected':''} onClick={()=>this.props.setVisibility('completed')}>completed</a></li>
                 </ul>
-                <button className="clear-completed">clear completed</button>
+                {this.props.finishTodos>0 ? 
+                <button className="clear-completed" onClick={()=>this.props.clearCompleted()}>clear completed</button> : null}
             </footer>
         )
     }
