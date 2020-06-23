@@ -15,7 +15,7 @@ export function  getFilms(){
         dispatch(toggleLoading(true))
         axios.get(url).then((res)=>{
             dispatch(setFilms(res.data.films))
-            console.log(res.data.films)
+            dispatch(toggleLoading(false))
         }).catch((err)=>{
             console.log(err);
             dispatch(toggleLoading(false))

@@ -11,7 +11,7 @@ class Movie extends Component{
         return(
             <div>
                 <h3>电影列表</h3>
-                <p>{this.props.loading ? null : "正在加载中。。。"}</p>
+                <p>{this.props.loading ?  "正在加载中。。。" : null}</p>
                 <ul>
                     {this.props.films.map((item,index)=>
                     <li key={index}>

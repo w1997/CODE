@@ -1,0 +1,11 @@
+import {INCREMENT,DECREMENT} from "../constants/action_types"
+export function increment(){
+    return{
+        type:INCREMENT
+    }
+}
+export function decrement(){
+    return{
+        type:DECREMENT
+    }
+}

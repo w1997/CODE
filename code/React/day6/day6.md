@@ -59,7 +59,7 @@ ES6的模块化中，export和export default都可以用于导出常量、函数
         ```
     import导入使用
     `import counter from "./counter"`
-注：export导出时，我们在用import导入时需要用{}，并且可以在{}中放多个；export default导出时我们可以在import后面直接用函数名就行。
+注：export导出时，我们在用import导入时需要用{}，并且可以在{}中放多个；export default导出时我们可以在import后面直接用函数名就行。经过实践我发现let的变量不能直接`export default let store=createStore(reducer,state)`,可以直接用export。
 ### 中间件redux-thunk
 1)首先，使用npm进行安装
 `npm install --save redux-thunk`
@@ -75,4 +75,5 @@ const store=createStoreWithMiddleware(
     composeEnhancers()
 )
 ```
+
 
