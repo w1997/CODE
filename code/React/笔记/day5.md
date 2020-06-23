@@ -232,12 +232,155 @@ object.assign(ol,{b:3},{c:4})
 ### 利用redux，react，react-redux写一个简单的计数器
 1）创建一个reduxstu项目 create-react-app reduxstu
 2）在src文件夹下创建actions、components、containers、reducers、store文件夹，App.js、index.js文件
-在actions文件下创建counter.js文件
-在components文件夹下创建Add.js、Show.js、Sub.js文件
-在containers文件夹下创建Counter.js文件
-在reducers文件夹下创建counter.js和index.js文件
-在store文件夹下创建index.js文件
+  + App.js文件
+  ```
+  import React,{Component} from 'react';
+  import Counter from "./containers/Counter"
+  class App extends Component{
+    render(){
+      return(
+        <div>
+          <h3>App组件</h3>
+          <Counter></Counter>
+        </div>
+      )
+    }
+  }
+  export default App;
+  ```
+  + index.js文件
+  ```
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import { Provider } from "react-redux"
+  import store from "./store/index"
+  import App from './App';
+  // ReactDOM.render  渲染JSX或组件
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('root')
+  );
 
+  ```
+在actions文件下创建counter.js文件
+  ```
+    export function increment(){
+      return{
+          type:"INCREMENT"
+      }
+  }
+  export function decrement(){
+      return{
+          type:"DECREMENT"
+      }
+  }
+  ```
+在components文件夹下创建Add.js、Show.js、Sub.js文件
++ Add.js文件
+  ```
+  import React, { Component } from 'react';
+  export default class Add extends Component {
+      render() {
+          return (
+              <button onClick={()=>this.props.increment()}>+</button>
+          )
+      }
+  }
+  ```
++ Show.js文件
+  ```
+  import React, { Component } from 'react';
+  export default class Show extends Component {
+      render() {
+          return (
+              <div>
+                  <h3>counter:{this.props.counter}</h3>
+              </div>
+          )
+      }
+  }
+  ```
++ Sub.js文件
+  ```
+  import React, { Component } from 'react';
+  export default class Sub extends Component {
+      render() {
+          return (
+              <button onClick={()=>this.props.decrement()}>-</button>
+          )
+      }
+  }
+  ```
+在containers文件夹下创建Counter.js文件
+  ```
+  import React, { Component } from 'react';
+  import { connect } from "react-redux";
+  import { increment,decrement } from "../actions/counter"
+  import Show from "../components/Show"
+  import Add from "../components/Add"
+  import Sub from "../components/Sub"
+  class Counter extends Component {
+      render() {
+          return (
+              <div>
+                  <Show counter={ this.props.counter }></Show>
+                  <p>
+                      <Add increment={ this.props.increment }></Add> &nbsp;
+                      <Sub decrement={ this.props.decrement }></Sub>
+                  </p>
+              </div>
+          )
+      }
+  }
+  // state 就是仓库中的状态
+  // function mapStateToProps(state){   // 将state转换为展示组件的props
+  //     return{    // {}表示映射关系  props.counter
+  //         counter:state.counter
+  //     }
+  // }
+  // let mapStateToProps = state=>({counter:state.counter})
+  // -------------------
+  // function mapDispatchToProps(dispath){  // 将分发action的函数转换为展示组件的props
+  // }
+  export default connect(state=>({counter:state.counter}),{ increment,decrement })(Counter)
+  ```
+在reducers文件夹下创建counter.js和index.js文件
++ counter.js文件
+  ```
+  export default function counter(state=0,action){
+    switch(action.type){
+        case "INCREMENT":
+            return state+1;
+        case "DECREMENT":
+            return state-1;
+        default:
+            return state;
+    }
+  }
+  ```
++ index.js文件
+  ```
+  import { combineReducers } from "redux"
+  import counter from "./counter"
+
+  const reducer = combineReducers({
+      counter
+  })
+
+  export default reducer;
+  ```
+在store文件夹下创建index.js文件
+  ```
+  import { createStore } from "redux"
+  import reducer from "../reducers/index"
+  const state = {
+      counter:99
+  }
+  const store = createStore(reducer,state)
+  export default store;
+  ```
 
 
 
