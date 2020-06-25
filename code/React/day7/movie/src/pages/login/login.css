@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 html,body{
     height: 100%;
     width: 100%;
@@ -5,8 +9,6 @@ html,body{
 #root{
     height: 100%;
     width: 100%;
-    margin: 0;
-    padding: 0;
 }
 .login{
     height: 100%;
@@ -18,17 +20,27 @@ header{
     align-items: center;
     width:100%;
     background-color: #3b645a;
+    height: 80px;
 }
 header h1{
     color: white;
 }
 section{
     margin: 0 auto;
-    height: 300px;
     width: 400px;
     background-color: #fff;
     margin-top: 50px;
+    height: 200px;
+}
+section h1{
+    text-align: center;
 }
 .ant-btn.login-form-button.ant-btn-primary {
-    width: 100%;
+    width: 360px;
+    margin: 0 auto;
   }
+.ant-col.ant-form-item-control{
+    width: 340px;
+    margin-left: 20px;
+    margin-right: 20px;
+}

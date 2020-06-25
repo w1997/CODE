@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
-import { Form, Input, Button, Checkbox } from 'antd';
+import axios from 'axios'
+import { Form, Input, Button,} from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './login.css'
 export default class Login extends Component {
     onFinish = values => {
+        //写ajax请求，拿数据
+        let url="https://www.cnblogs.com/tommymarc/p/11991533.html";
+        axios.get(url).then((res)=>{
+
+        }).catch((err)=>{
+            console.log(err.message)
+        })
         console.log('Received values of form: ', values);
     };
     render() {
@@ -13,7 +21,7 @@ export default class Login extends Component {
                     <h1>商品管理系统</h1>
                 </header>
                 <section>
-                    <h1>这是用户登录</h1>
+                    <h1>用户登录</h1>
                     {/* 引入的antDesign组件 */}
                     <Form
                         name="normal_login"
@@ -27,11 +35,13 @@ export default class Login extends Component {
                             name="username"
                             rules={[
                                 {
-                                    type:"string",
+                                    // type:"string",
                                     max:6,
                                     min:4,
+                                    //正则表达式，验证用户名是有数字字母和下划线组成
+                                    pattern:/^[0-9a-zA-Z_]{1,}$/,
                                     required: true,
-                                    message: 'Please input your Username!',
+                                    message: '请输入正确的用户名由数字、字母和下划线组成',
                                 },
                             ]}
                         >
@@ -45,7 +55,7 @@ export default class Login extends Component {
                                     max:10,
                                     min:4,
                                     required: true,
-                                    message: 'Please input your Password!',
+                                    message: '请输入正确的密码',
                                 },
                             ]}
                         >
@@ -57,9 +67,8 @@ export default class Login extends Component {
                         </Form.Item>
                         <Form.Item>
                             <Button type="primary" htmlType="submit" className="login-form-button">
-                                Log in
+                                登录
                             </Button>
-                                Or <a href="">register now!</a>
                         </Form.Item>
                     </Form>
                 </section>
