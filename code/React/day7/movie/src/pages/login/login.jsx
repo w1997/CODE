@@ -1,18 +1,33 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import { Form, Input, Button,} from 'antd';
+import { Form, Input, Button, message,} from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './login.css'
+import { resLogin } from '../../api';
+// import {Redirect} from 'react-router-dom'
+import memorySave from '../../utils/memorySave'
+import localstorageSave from '../../utils/localstorageSave'
 export default class Login extends Component {
-    onFinish = values => {
+    onFinish = async values => {
         //写ajax请求，拿数据
-        let url="https://www.cnblogs.com/tommymarc/p/11991533.html";
-        axios.get(url).then((res)=>{
-
-        }).catch((err)=>{
-            console.log(err.message)
+        let{username,password}=values;
+        resLogin(username,password).then(response=>{
+            console.log('成功了',response.data)
+        }).catch(error=>{
+            console.log("失败了",error)
         })
-        console.log('Received values of form: ', values);
+        const response=await resLogin(username,password)
+        let res=response.data
+        if(res.status===0){
+            message.success("登录成功")
+            //把用户信息保存到内存中，但是一刷新页面，数据就会消失
+            memorySave.user =res.data
+            //把用户信息保存到硬盘上
+            localstorageSave.saveUser(res.data)
+            this.props.history.replace("./admin")
+        }else{
+            message.error(res.msg)
+        }
+
     };
     render() {
         return (
