@@ -11,17 +11,11 @@
 .sider{
     background-color: #001529;
 }
-/* h1{
-    color:#fff;
-    height: 90px;
-    background-color: #002140;
-    line-height: 90px;
-    font-size: 24px;
 
-} */
 /* 头部 */
 .section{
     margin: 0;
+    height: 100%;
 }
 .header{
     background-color: #fff;

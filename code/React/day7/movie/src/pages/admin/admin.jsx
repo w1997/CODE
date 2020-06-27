@@ -32,7 +32,7 @@ export default class Admin extends Component{
                     <Layout className="section">
                         <Header className="header">
                         </Header>
-                        <Content style={{margin: 20, backgroundColor: '#fff'}}>
+                        <Content style={{margin: 20, backgroundColor: '#fff'}} className="content">
                             <Switch>
                                 <Route exact path="/home" component={Home} ></Route>
                                 <Route path="/category" component={Category} ></Route>
@@ -45,7 +45,7 @@ export default class Admin extends Component{
                                 <Redirect to="/home"></Redirect>
                             </Switch>
                         </Content>
-                        <Footer>Footer</Footer>
+                        <Footer style={{textAlign:"center",color:"#aaa",}}>学习react so easy~</Footer>
                     </Layout>
                 </Layout>
             )
