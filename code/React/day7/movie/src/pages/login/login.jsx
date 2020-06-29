@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Form, Input, Button, message,} from 'antd';
+import { Form, Input, Button, message,Icon} from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import './login.css'
+
+import './login.less'
 import { resLogin } from '../../api';
 // import {Redirect} from 'react-router-dom'
 import memorySave from '../../utils/memorySave'
@@ -60,7 +61,8 @@ export default class Login extends Component {
                                 },
                             ]}
                         >
-                            <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+                           <Input prefix={<Icon type="user" />} placeholder="Username" />
+                            {/* <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" /> */}
                         </Form.Item>
                         <Form.Item
                             name="password"
@@ -74,11 +76,12 @@ export default class Login extends Component {
                                 },
                             ]}
                         >
-                            <Input
+                           {/*  <Input
                                 prefix={<LockOutlined className="site-form-item-icon" />}
                                 type="password"
                                 placeholder="Password"
-                            />
+                            /> */}
+                            <Input prefix={<Icon type="lock" />} type="password" placeholder="Password"/>
                         </Form.Item>
                         <Form.Item>
                             <Button type="primary" htmlType="submit" className="login-form-button">

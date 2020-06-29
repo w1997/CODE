@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Route ,Redirect,Switch} from 'react-router-dom'
 import {Layout} from 'antd';
 import memorySave from '../../utils/memorySave'
-import './admin.css'
+import './admin.less'
 
 
 import LeftNav from '../../components/left-nav';

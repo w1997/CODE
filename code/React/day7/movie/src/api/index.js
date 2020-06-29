@@ -25,7 +25,7 @@ export  const reqWeather=(city)=>{
 //获取一级或某个二级分类列表
 export const reqCategorys=(parentId)=>ajax(URL+"/manage/category/list",{parentId})
 //添加分类
-export const reqAddCategory=(categoryName)=>ajax(URL+"/manager/category/add",{categoryName},'POST')
+export const reqAddCategory=(parentId,categoryName)=>ajax(URL+"/manage/category/add",{parentId,categoryName},'POST')
 //更新分类
-export const reqUpdateCategory=({categoryId,categoryName})=>ajax(URL+'/manager/category/update',{categoryId,categoryName},'POST')
-
+export const reqUpdateCategory=({categoryId,categoryName})=>ajax(URL+'/manage/category/update',{categoryId,categoryName},'POST')
+// export const reqUpdateCategory = ({categoryId, categoryName}) => ajax(URL + '/manage/category/update', {categoryId, categoryName}, 'POST')

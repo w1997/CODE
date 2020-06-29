@@ -1,6 +1,6 @@
 import React from 'react'
 import { Component } from 'react';
-import './index.css'
+import './index.less'
 import LinkButton from '../link-button/index'
 import formatDate from '../../utils/dateUtils'
 import memorySave from '../../utils/memorySave'
