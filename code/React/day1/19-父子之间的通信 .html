@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入核心库 -->
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+    // 组件类，本质上还是一个类，一个类只有被创建的时候才能发挥作用
+        // 一个类需要new ，不new相当于没用
+        class Parent extends React.Component {
+            // 父组件中改变子组件的状态。
+            // 方法一：在父组件中通过this.ref.xxx拿到子组件对象,直接在父组件中改变子组件的状态
+            // 对子组件来说并不是很好
+            // 方法二：在子组件中定义一个改变状态的方法，然后在父组件中进行调用
+            // 在子组件中改变父组件的状态
+            // 方法一：在子组件中直接修改父组件的状态，通过给子组件传递自己的组件对象xxx={this}
+            // 然后子组件使用this.props.xxx进行接收，可以在自己定义的方法中修改父组件的状态。
+            // 方法二：在父组件中定义一个修改状态的方法，然后把这个方法传递给子组件，子组件对该方法进行接收和调用
+            state={
+                num:0
+            }
+           /*  add=()=>{
+                this.setState({
+                    num:this.state.num+1
+                })
+            } */
+            render() {
+                return (
+                    <div>
+                        <h1>父组件</h1>
+                        <p>{this.state.num}</p>
+                        <hr /> 
+                        <Child xxx={this} ></Child> 
+                    {/* <Child add={this.add} ></Child> */}
+                    </div>
+                )
+            }
+        }
+        // class类 ----function
+        class Child extends React.Component {
+            add=()=>{
+                let p=this.props.xxx;
+                console.log(p)
+                p.state.num+=1
+                p.forceUpdate()
+                // this.props.add()
+            }
+            render() {
+                return (
+                    <div>
+                        <p></p>
+                        <button onClick={this.add}>+1</button>
+                        <h3>子组件</h3>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Parent />, document.getElementById("app"));
+    </script>
+</body>
+
+</html>

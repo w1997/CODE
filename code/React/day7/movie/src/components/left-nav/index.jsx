@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu } from 'antd';
+import { Menu ,Icon} from 'antd';
 import './index.less'
 
 import { Link, withRouter } from 'react-router-dom'
@@ -15,30 +15,32 @@ class LeftNav extends Component {
                 return (
                     <Menu.Item key={item.key}>
                         <Link to={item.key}>
+                            <Icon type={item.icon}></Icon>
                             <span>{item.title}</span>
                         </Link>
                     </Menu.Item>
                 )
             } else {
                 return (
-                    <SubMenu key={item.key} title={item.title}>
+    
+                    <SubMenu key={item.key} title={<span><Icon type={item.icon}></Icon> <span>{item.title}</span></span>} >
                         {this.getMenuNodes(item.children)}
                     </SubMenu>
                 )
             }
         })
     }
-    componentDidCatch(){
-        this.menuList=this.getMenuNodes(menuList)
+    componentDidCatch() {
+        this.menuList = this.getMenuNodes(menuList)
     }
     render() {
         // 得到请请求的pathname
         let path = this.props.location.pathname
         return (
             <div style={{ width: 200 }}>
-                
-                <h1 style={{ color: '#fff', fontSize: '24px', height:'80px', backgroundColor: " #002140" }}>商品管理系统</h1>
-            
+
+                <h1 style={{ color: '#fff', fontSize: '24px', height: '80px', backgroundColor: " #002140" }}>商品管理系统</h1>
+
                 <Menu
                     selectedKeys={[path]}
                     defaultOpenKeys={['sub1']}

@@ -1,10 +1,11 @@
-import React from 'react'
 import React, { Component } from 'react';
-class Addproduct extends Component {
+import { Button, Card, Icon, Form, Input} from 'antd'
+
+export default class Addproduct extends Component {
     render() {
         const extra = (
             <Button type='primary'>
-                <PlusOutlined />添加商品
+                添加商品
             </Button>
         )
 

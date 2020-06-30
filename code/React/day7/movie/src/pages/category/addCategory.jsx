@@ -27,7 +27,7 @@ class Addcategory extends Component {
                             {
                                 categorys.map(c => <Option value={c._id}>{c.name}</Option>)
                             }
-                            {/* {categorys.map(c=> <Option value={c_id}>{c_name}</Option>)}     */}
+                            {/* {categorys.map(c=> <Option value={c._id}>{c._name}</Option>)}     */}
                         </Select>
                     )}
                 </Form.Item>

@@ -22,10 +22,16 @@ export  const reqWeather=(city)=>{
     })
   })
 }
+// ======商品的分类管理接口封装==========
 //获取一级或某个二级分类列表
 export const reqCategorys=(parentId)=>ajax(URL+"/manage/category/list",{parentId})
 //添加分类
 export const reqAddCategory=(parentId,categoryName)=>ajax(URL+"/manage/category/add",{parentId,categoryName},'POST')
 //更新分类
 export const reqUpdateCategory=({categoryId,categoryName})=>ajax(URL+'/manage/category/update',{categoryId,categoryName},'POST')
-// export const reqUpdateCategory = ({categoryId, categoryName}) => ajax(URL + '/manage/category/update', {categoryId, categoryName}, 'POST')
+
+// =============商品的商品管理接口的封装
+// 查看商品信息
+export const reqProducts=(pageNum,pageSize)=>ajax (URL+'/manage/product/list',{pageNum,pageSize})
+// 搜索商品
+export const reqSearchProducts=(pageNum,pageSize,searchName,searchType)=>ajax(URL+'/manage/product/search',{pageNum,pageSize,[searchType]:searchName})
