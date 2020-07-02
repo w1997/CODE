@@ -35,3 +35,7 @@ export const reqUpdateCategory=({categoryId,categoryName})=>ajax(URL+'/manage/ca
 export const reqProducts=(pageNum,pageSize)=>ajax (URL+'/manage/product/list',{pageNum,pageSize})
 // 搜索商品
 export const reqSearchProducts=(pageNum,pageSize,searchName,searchType)=>ajax(URL+'/manage/product/search',{pageNum,pageSize,[searchType]:searchName})
+// 对商品进行上架或下架处理
+export const reqUpdateStatus=(productId,status)=>ajax(URL+'/manage/product/updateStatus',{productId,status},'POST')
+// 删除图片
+export const reqDeleteImg=(name)=>ajax(URL+"/manage/img/delete",{name},'POST')
