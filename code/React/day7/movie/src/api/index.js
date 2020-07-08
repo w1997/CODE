@@ -39,3 +39,15 @@ export const reqSearchProducts=(pageNum,pageSize,searchName,searchType)=>ajax(UR
 export const reqUpdateStatus=(productId,status)=>ajax(URL+'/manage/product/updateStatus',{productId,status},'POST')
 // 删除图片
 export const reqDeleteImg=(name)=>ajax(URL+"/manage/img/delete",{name},'POST')
+// 添加和修改商品
+// 如果传的参数是一个对象，那么后面的值就不用再写上大括号
+export const reqAddUpdateProduct=(product)=>ajax(URL+"/manage/product/"+(product._id ?'update':'add'),product,'POST')
+// =============用户
+// 添加用户
+export  const reqAdduser=(username,password,phone,email,role_id)=>ajax(URL+"/manage/user/add",{username,password,phone,email,role_id},'POST')
+// 获取所有用户列表
+export const reqAllusers=()=>ajax(URL+"/manage/user/list");
+// 更新用户
+export const reqUpdateuser=(_id,username,phone,email,role_id)=>ajax(URL+"/manage/user/update",{_id,username,phone,email,role_id},'POST')
+// 删除用户
+export const reqDeleteuser=(userId)=>ajax(URL+"/manage/user/delete",{userId},'POST')

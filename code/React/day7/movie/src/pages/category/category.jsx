@@ -161,14 +161,21 @@ export default class Category extends Component {
 
             <Card title={title} extra={extra}>
                 <Table bordered
+                // 表格渲染的数据
                     dataSource={parentId === "0" ? categorys : subCategorys}
+                    // 表头数据
                     columns={columns}
+                    // loading效果
                     loading={this.state.loading}
                 ></Table>
                 <Modal
+                // 点击添加，弹出添加的对话框
                     title="添加分类"
-                    visible={showStuatus===1}
+                    // 控制对话框是否显示
+                    visible={showStuatus===1} 
+                    // 点击对话框上ok按钮，完成添加
                     onOk={this.addCategory}
+                    // 点击对话框上的cancle按钮，取消
                     onCancel={this.handleCancel}
                 >
                     <Addcategory categorys={categorys} parentId={parentId} setForm={(form)=>{this.form=form}} ></Addcategory>

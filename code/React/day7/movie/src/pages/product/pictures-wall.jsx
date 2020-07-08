@@ -19,6 +19,30 @@ export default class PicturesWall extends React.Component {
         // 上传文件的列表
         fileList: [],
     };
+    constructor(props){
+        super(props);
+        // 设置fileList为一个空数组
+        let fileList=[];
+        // 把从父组件接收的数据中解析出imgs数组，一个图片名字数组
+       const  {imgs}=this.props;
+    //    判断接收的数组是否存在，并且不能是空的
+        if(imgs&&imgs.length>0){
+            // 遍历这个数组，把数组中的每一项赋值给fileList
+            fileList=imgs.map((img,index)=>({
+                // 给每一项添加uid，status，属性
+                uid:-index,
+                name:img,
+                status:'done',
+                url:"http://localhost:5000/upload/"+img
+            }))
+        }
+        // 把对象重新赋值个state
+        this.state={
+            previewImage:false,
+            previewImage:"",
+            fileList
+        }
+    }
     // 取消图片弹框
     handleCancel = () => this.setState({ previewVisible: false });
     // 点击预览
@@ -55,6 +79,7 @@ export default class PicturesWall extends React.Component {
             // 点击垃圾桶，进行删除，删除的是fileList中的数据
             // 我们需要把后端的数据进行删除
           let result= await reqDeleteImg(file.name);
+          console.log(result)
         if(result.data.status===0){
             message.success("删除图片成功了")
         }else{
@@ -70,7 +95,8 @@ export default class PicturesWall extends React.Component {
     }
     render() {
         const { previewVisible, previewImage, fileList } = this.state;
-        // uploadButton就是那个+号和upload
+        // uploadButton就是那个+号和upload 
+        let file=this.props.Imgs
         const uploadButton = (
             <div>
                 <Icon type="plus" />

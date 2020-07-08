@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Button, Card, Icon, Form, Input, Cascader } from 'antd'
+import { Button, Card, Icon, Form, Input, Cascader, message } from 'antd'
 import Editor from './editor'
-import { reqCategorys } from "../../api/index"
+import { reqCategorys, reqAddUpdateProduct } from "../../api/index"
 import LinkButton from '../../components/link-button';
 import PicturesWall from './pictures-wall'
 
@@ -12,9 +12,9 @@ class Addproduct extends Component {
     state = {
         options: [],
     }
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.pw=React.createRef()
+        this.pw = React.createRef()
     }
     //   初始化Options,改变成级联组件的样式
     initOptions = async (categorys) => {
@@ -32,7 +32,7 @@ class Addproduct extends Component {
         if (isUpdate && pCategoryId !== "0") {
             //拿到二级分类列表数据
             const subCategorys = await this.getCategorys(pCategoryId)
-        //    把获得二级分类列表每一项改变成我们想要的状态上
+            //    把获得二级分类列表每一项改变成我们想要的状态上
             let childOptions = subCategorys.map(c => ({
                 value: c._id,
                 label: c.name,
@@ -40,7 +40,7 @@ class Addproduct extends Component {
             }))
             // targetOption就是代表的就是一级列表的数据
             const targetOption = options.find(option => option.value === pCategoryId)
-        //    让一级列表中有孩子的数据，进行连接，使一级列表数据（带有孩子的），就能显示出二级列表的数据
+            //    让一级列表中有孩子的数据，进行连接，使一级列表数据（带有孩子的），就能显示出二级列表的数据
             targetOption.children = childOptions
         }
         // console.log(options)
@@ -107,11 +107,46 @@ class Addproduct extends Component {
     }
     // 增加或修改点击提交按钮拿到数据
     submit = () => {
-        this.props.form.validateFields((error, values) => {
+        this.props.form.validateFields(async (error, values) => {
             if (!error) {
                 // 验证通过
-                console.log(values)
-             console.log(this.pw.current.getImgs())  
+                // console.log(values)
+                // 获取子组件传递的方法
+                // let Imgs = this.pw.current.getImgs()
+                // console.log(Imgs)
+                // let detail = this.refs.ed.state.editorContent;
+                // console.log(detail);
+                const { name, desc, price, categoryIds } = values;
+                let pCategoryId, categoryId
+                if (categoryIds.length === 1) {
+                    // 没有二级分类，pCategoryId="0"
+                    pCategoryId = "0"
+                    categoryId = categoryIds[0]
+                } else {
+                    pCategoryId = categoryIds[0];
+                    categoryId = categoryIds[1];
+                }
+                // 接受子组件传递的方法
+                let imgs = this.pw.current.getImgs();
+                // let fileList=this.pw.current.state.fileList;
+                // console.log(fileList)
+                // console.log(Imgs)
+                let detail = this.refs.ed.state.editorContent;
+                const product = { name, desc, price,imgs, detail, pCategoryId, categoryId }
+                if (this.isUpdate) {
+                    // 给product上加上_id属性
+                    product._id = this.product._id
+                }
+                // 调接口，拿到数据
+                let result = await reqAddUpdateProduct(product);
+                if (result.data.status === 0) {
+                    // 通过isUpdate去判断是更新商品还是添加商品
+                    message.success(`${this.isUpdate ? '更新' : '添加'}商品成功！`)
+                    // 返回到上一级
+                    this.props.history.goBack();
+                } else {
+                    message.error(`${this.isUpdate ? '更新' : '添加'}商品失败！`)
+                }
             }
         })
     }
@@ -140,7 +175,7 @@ class Addproduct extends Component {
     render() {
         // 从this中解析出isUpdate,product
         let { isUpdate, product } = this
-        let { pCategoryId, categoryId } = product
+        let { pCategoryId, categoryId, imgs, detail } = product
         // 定义一个空数组，用来放商品分类中的一二级列表的值
         let categoryIds = [];
         // 判断，如果isUpdate是true，就代表着我们要写的就是关于修改商品的数据
@@ -172,8 +207,8 @@ class Addproduct extends Component {
         )
         // 设置表单中每一项的宽度
         const formItemLayout = {
-            labelCol: { span: 4 },
-            wrapperCol: { span: 19 },
+            labelCol: { span: 2 },
+            wrapperCol: { span: 8 },
         };
         // 高阶函数
         const { getFieldDecorator } = this.props.form;
@@ -213,9 +248,6 @@ class Addproduct extends Component {
                             }]
                         }
                         )(<Input addonAfter={<span>元</span>} placeholder="请输入商品的价格" />)}
-                        {/* <div style={{ marginBottom: 16 }}>
-                            <Input addonAfter={<span>元</span>} placeholder="请输入商品的价格" />
-                        </div> */}
                     </Form.Item>
                     <Form.Item label="商品分类" required >
                         {getFieldDecorator('categoryIds', {
@@ -237,10 +269,10 @@ class Addproduct extends Component {
                     </Form.Item>
                     <Form.Item label="商品图片"  >
                         {/* 子组件给父组件传递一个方法 */}
-                       <PicturesWall ref={this.pw}></PicturesWall>
+                        <PicturesWall ref={this.pw} imgs={imgs}></PicturesWall>
                     </Form.Item>
-                    <Form.Item label="商品详情" >
-                        <Editor></Editor>
+                    <Form.Item label="商品详情" labelCol={{ span: 2 }} wrapperCol={{ span: 20 }} >
+                        <Editor ref="ed" detail={detail} ></Editor>
                     </Form.Item>
                     <Form.Item >
                         <Button type="primary" onClick={this.submit}>提交</Button>

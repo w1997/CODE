@@ -2,25 +2,33 @@ import React, { Component } from 'react';
 import E from 'wangeditor'
 
 class Editor extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            editorContent:''
-         };
-    }
-
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         editorContent:''
+    //      };
+    // }
+    // 设置一个状态
+    state = { editorContent:''};
     componentDidMount() {
+        // 接收父组件传递的数据
+        const{detail}=this.props;
         const elemMenu = this.refs.editorElemMenu;
         const elemBody = this.refs.editorElemBody;
         const editor = new E(elemMenu,elemBody)
         // 使用 onchange 函数监听内容的变化，并实时更新到 state 中
-        editor.customConfig.onchange = html => {
-            console.log(editor.txt.html())
-            this.setState({
-                // editorContent: editor.txt.text()
-                editorContent: editor.txt.html()
-            })
-        }
+             editor.customConfig.onchange = html => {
+                //  这个函数是改变富文本输入框改变时，会调用
+                // 打印出输入的内容
+                // console.log(editor.txt.html())
+                this.setState({
+                    // editorContent: editor.txt.text()
+                    editorContent:editor.txt.html()
+                })
+            }
+            // const html=detail
+            // editor.txt.append(detail)
+            // editor.txt.html(detail)
         editor.customConfig.menus = [
             'head',  // 标题
             'bold',  // 粗体
@@ -45,10 +53,14 @@ class Editor extends React.Component {
         ]
         editor.customConfig.uploadImgShowBase64 = true
         editor.create()
-
+        // 设置初始化数据，好像必须要放在editor.create()后面
+        // 在其它地方设置都会报错
+        editor.txt.html(detail)
     };
 
     render() {
+        // const {editorContent}=this.state
+        // console.log(editorContent)
         return (
             <div className="shop">
                 <div className="text-area" >
