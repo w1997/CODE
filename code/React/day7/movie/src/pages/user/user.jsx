@@ -4,12 +4,18 @@ import LinkButton from '../../components/link-button'
 import AddUser from './adduser'
 import UpdateUser from './update'
 import { reqAdduser, reqAllusers, reqUpdateuser, reqDeleteuser } from '../../api/index'
+import create from 'antd/lib/icon/IconFont';
+import formatDate from '../../utils/dateUtils'
 const { confirm } = Modal;
 export default class User extends Component {
     state = {
         showStuatus: 0,
         // 所有的用户信息
         usersInfo: [],
+        // 所有角色名称列表：
+        namesList:[],
+        // 所有角色的信息
+        rolesInfo:[]
     }
     // 点击页面上的创建用户
     showAddUser = () => {
@@ -97,19 +103,39 @@ export default class User extends Component {
             showStuatus: 0
         })
     }
+    // 通过添加的role_id变成role_name,正常的渲染出来
+    roleName=(role_id)=>{
+        // 获取对象数组中的，某一对象的元素
+        // 通过过滤，在不改变元数组的情况下
+        // 返回筛选后符合条件的数组
+        var data=this.state.rolesInfo.filter((item)=>{
+            return  item._id===role_id
+            // return item.name
+        })
+        // 由于我的原数组一个对象数组，所以筛选后得到的数组
+        // 也是一个对象数组，我们可以通过map拿到对象数组中对象的元素
+        // 通过过滤，找到指定id的name值
+        // console.log(data)
+      return data.map((item)=>{
+           return item.name
+       })
+        // return data.name
+    }
     // 得到所有用户列表
     getAllusers = async () => {
-        // 调接口，拿数据
+        // 调接口，拿到所有的数据，角色列表信息，和用户的信息
         const result = await reqAllusers();
-        // console.log(result.data)
+        // console.log(result)
         // 判断状态是否是0
         if (result.data.status === 0) {
             // 拿到所有的数据集合数组，赋值给userInfo
             const usersInfo = result.data.data.users;
-            // console.log(userInfo) 
+            const rolesInfo=result.data.data.roles;
+            //  console.log(rolesInfo) 
             // 改变状态
             this.setState({
-                usersInfo
+                usersInfo,
+                rolesInfo
             })
         } else {
             console.log("获取数据失败")
@@ -145,13 +171,15 @@ export default class User extends Component {
             },
             {
                 title: '注册时间',
-                dataIndex: 'create_time',
-                key: 'create_time',
+                dataIndex:'create_time',
+                render:(create_time)=>formatDate(create_time)
             },
             {
                 title: '所属角色',
                 dataIndex: 'role_id',
-                key: 'role_id',
+                // 我们得到的是角色的id，显示在页面上的也是id号
+                // 但是，我们想要的是id号所在数组中的角色名称
+                render:(value)=>this.roleName(value)
             },
             {
                 title: '操作',
@@ -175,6 +203,7 @@ export default class User extends Component {
         return (
             <Card title={title} >
                 <Table bordered
+                    rowKey="_id"
                     dataSource={usersInfo}
                     columns={columns}
                 ></Table>
@@ -184,7 +213,7 @@ export default class User extends Component {
                     onOk={this.addUser}
                     onCancel={this.handleCancel}
                 >
-                    <AddUser setForm={form => this.form = form}></AddUser>
+                    <AddUser  setForm={form => this.form = form}></AddUser>
                 </Modal>
                 <Modal
                     title="修改分类"

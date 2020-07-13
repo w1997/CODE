@@ -1,14 +1,36 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
-import { Form, Input } from 'antd'
-
-
+import { Form, Input, Select } from 'antd'
+import { reqAllRoles } from '../../api/index'
+const { Option } = Select;
 class UpdateUser extends Component {
+    state={
+        namesList:[]
+    }
     componentWillMount() {
         // 将form对象通过setForm()传递父组件
         this.props.setForm(this.props.form)
     }
+    // 拿到角色名称数组
+    getNames =async () => {
+        // 拿到角色名称，调用角色列表接口
+        const result=await reqAllRoles();
+        // console.log(result)
+        if(result.data.status===0&&result.data.data){
+            let data=result.data.data
+            this.setState({
+                namesList:data
+            })
+        }
+    }
+    handleChange = (value) => {
+        console.log(`selected ${value}`);
+    }
+    componentDidMount(){
+        this.getNames()
+    }
     render() {
+        let {namesList}=this.state
         const { getFieldDecorator } = this.props.form
         const {username,phone,email,role_id}=this.props.userInfo
         // console.log(this.props)
@@ -52,9 +74,15 @@ class UpdateUser extends Component {
                 </Form.Item>
                 <Form.Item label="角色">
                     {getFieldDecorator('role_id', {
-                        initialValue: role_id,
-                        // initialValue: "角色",
-                    })(<Input placeholder="请输入角色" />)
+                        initialValue: role_id
+                    })(
+                        <Select onChange={this.handleChange}>
+                            {
+                                namesList.map((item)=>{
+                                    return (<Option key={item._id} value={item._id}>{item.name}</Option>)
+                                })
+                            }
+                        </Select>)
                     }
                 </Form.Item>
             </Form>

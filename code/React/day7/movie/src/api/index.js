@@ -42,7 +42,7 @@ export const reqDeleteImg=(name)=>ajax(URL+"/manage/img/delete",{name},'POST')
 // 添加和修改商品
 // 如果传的参数是一个对象，那么后面的值就不用再写上大括号
 export const reqAddUpdateProduct=(product)=>ajax(URL+"/manage/product/"+(product._id ?'update':'add'),product,'POST')
-// =============用户
+// =============用户管理=======
 // 添加用户
 export  const reqAdduser=(username,password,phone,email,role_id)=>ajax(URL+"/manage/user/add",{username,password,phone,email,role_id},'POST')
 // 获取所有用户列表
@@ -51,3 +51,10 @@ export const reqAllusers=()=>ajax(URL+"/manage/user/list");
 export const reqUpdateuser=(_id,username,phone,email,role_id)=>ajax(URL+"/manage/user/update",{_id,username,phone,email,role_id},'POST')
 // 删除用户
 export const reqDeleteuser=(userId)=>ajax(URL+"/manage/user/delete",{userId},'POST')
+// ============角色管理=======
+// 添加角色
+export const reqAddRole=(roleName)=>ajax(URL+"/manage/role/add",{roleName},'POST')
+// 获取角色列表
+export const reqAllRoles=()=>ajax(URL+'manage/role/list')
+// 更新角色
+export const reqUpdateRole=(_id,menus,auth_time,auth_name)=>ajax(URL+"/manage/role/update",{_id,menus,auth_time,auth_name},'POST')
