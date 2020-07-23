@@ -143,36 +143,106 @@ var obj = {
 console.log(obj.getA);// function foo() { console.log(this.a)}
 active(obj.getA);//结果是20
 </script> -->
-<script>
-    // demo05
-(function () {
+<!-- ============利用断点，查看闭包 -->
+<!-- <script>
+  // demo05
+  (function () {
 
-var a = 10;
-var b = 20;
+    var a = 10;
+    var b = 20;
 
-var test = {
-  m: 20,
-  add: function (x) {
-    return a + x;
-  },
-  sum: function () {
-    return a + b + this.m;
-  },
-  mark: function (k, j) {
-    return k + j;
+    var test = {
+      m: 20,
+      add: function (x) {
+        return a + x;
+      },
+      sum: function () {
+        return a + b + this.m;
+      },
+      mark: function (k, j) {
+        return k + j;
+      }
+    }
+
+    window.test = test;
+
+  })();
+
+  test.add(100);
+  test.sum();
+  test.mark();
+
+  var _mark = test.mark;
+  _mark();
+</script> -->
+<!-- <script>
+  function foo() {
+    console.log(this.a)
   }
-}
 
-window.test = test;
+  function active(fn) {
+    fn(); // 真实调用者，为独立调用
+  }
 
-})();
+  var a = 20;
+  var obj = {
+    a: 10,
+    getA: foo
+  }
 
-test.add(100);
-test.sum();
-test.mark();
+  active(obj.getA);//20
+</script> -->
+<!-- <script>
+  function exam(a, b, c, d, e) {
 
-var _mark = test.mark;
-_mark();
+    // 先看看函数的自带属性 arguments 什么是样子的
+    console.log(arguments);
+
+    // 使用call/apply将arguments转换为数组, 返回结果为数组，arguments自身不会改变
+    var arg = [].slice.call(arguments);
+
+    console.log(arg);
+  }
+
+  exam(2, 8, 9, 10, 3);
+
+// result:
+// { '0': 2, '1': 8, '2': 9, '3': 10, '4': 3 }
+// [ 2, 8, 9, 10, 3 ]
+//
+// 也常常使用该方法将DOM中的nodelist转换为数组
+// [].slice.call( document.getElementsByTagName('li') );
+</script> -->
+<!-- =======函数参数传递方式：按值传递-->
+<script>
+  /* var a = 20;
+
+  function fn(a) {
+    a = a + 10;
+    console.log(a)
+  }
+  fn(a);
+  console.log(a); // 20 */
+  /* var a = { m: 10, n: 20 }
+  function fn(a) {
+    a.m = 20;
+    console.log(a)
+  }
+
+  fn(a);
+  console.log(a);   // { m: 20, n: 20 } */
+  var person = {
+    name: 'Nicholas',
+    age: 20
+  }
+
+  function setName(obj) {  // 传入一个引用
+    obj = {};   // 将传入的引用指向另外的值
+    obj.name = 'Greg';  // 修改引用的name属性
+  }
+
+  setName(person);
+  console.log(person.name);  // Nicholas 未被改变
+  // 如果person是按引用传递，那么person就会自动被修改为指向其name属性值为Gerg的新对象。
+  // 但是我们从结果中看到，person对象并未发生任何改变，因此只是在函数内部引用被修改而已。
 </script>
-
-

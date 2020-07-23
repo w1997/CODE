@@ -1,0 +1,161 @@
+<!-- <script>
+    var obj={
+        a:1,
+        fn:(function(val){
+            // 赋给fn的是自执行函数的执行结果
+            // 也就是一个undefined，是a of undefined 即obj是undefined
+            // 该自执行函数只会执行一次
+            console.log(val)
+        })(obj.a)
+    }
+</script> -->
+<!-- <script>
+    let a=3;
+    let b=new Number(3);
+    let c=3;
+    console.log(a==b);//true
+    console.log(a===b);//false
+    console.log(b===c);//false
+    console.log(typeof(a));//number
+    // typeof得到的是元素属于哪种数据类型
+    console.log(typeof(b));//object
+    // instanceof是判断某一个元素是否属于哪种数据类型，返回值是true或false
+    console.log( b instanceof String)
+</script>
+ -->
+<!-- <script>
+    // 函数作用域中定义的变量，只能在函数中调用，外界是无法访问的。
+    // 没有块级作用域导致了if或for这样的逻辑语句中定义的变量可以被外界访问
+    for(var i=0;i<3;i++){
+        setTimeout(()=>console.log(i),1);
+    }
+    //在一个函数中var的变量会进行变量提升，setTimeout是个异步操作
+    //
+    for(let i=0;i<3;i++){
+        setTimeout(()=>console.log(i),1);
+    }
+</script> -->
+<!-- ====JS的异步编程===== -->
+<!-- 这个题目考查的是1）调用栈2）事件循环3）任务队列4）Promise的回调函数执行
+5）async表达式的返回值 6）await表达式的作用和返回值
+-->
+<!-- <script>
+    // MDN是这样描述await的：
+    // async函数中可能会有await表达式，这样会使async函数暂停执行，
+    // 等表达式中的Promise解析完成后继续执行async函数并返回解决结果。
+    // 阮一峰老师的解释是：
+    // async函数返回一个Promise对象，当函数执行的时候，一旦遇到await
+    // 就会先返回，等到触发的异步操作完成，在接着执行函数体内后面的语句。
+    async function async1() {
+        console.log("async1 start")
+        // 当await操作符后面的表达式是一个promise的时候，
+        // 它的返回值，实际上就是Promise的回调函数resolve的参数
+        await async2();
+        console.log('async1 end')
+    }
+    // async表达式定义的函数也是立即执行的
+    async function async2() {
+        console.log('async2');
+    }
+    // async1();
+    console.log("script start");
+    // 以第二个参数是0的方式调用setTimeout就是推迟到调用栈为空才执行回调。
+    setTimeout(function () {
+        console.log("settimeout");
+    }, 0)
+    // 如果async1()放在console.log("script start")之前
+    // 运行的结果就是async1 start，async2，script start
+    // async表达式定义的函数也是立即执行的
+    async1();
+    //Promise是一个立即执行函数，但是它的成功（或失败：reject）
+    // 的回调函数resolve却是一个异步执行的回调。
+    new Promise(function (resolve) {
+        console.log("promise1")
+        // 当执行到resolve()时，这个任务会被放到回调队列
+        // 中，等待调用栈有空闲时事件循环再来取走它
+        resolve();
+        // 如果为真就执行resolve()
+    }).then(function () {
+        console.log("promise2");
+    });
+    console.log('script end')
+// JS复习.html:46 script start
+// JS复习.html:39 async1 start
+// JS复习.html:44 async2
+// JS复习.html:53 promise1
+// JS复习.html:58 script end
+// JS复习.html:41 async1 end
+// JS复习.html:56 promise2
+// JS复习.html:49 settimeout
+// 首先，事件循环从宏任务（macrostack）队列开始，这个时候，宏任务队列中，只有一个 script (整体代码)任务。从宏任务队列中取出一个任务来执行。
+// 首先执行 console.log('script start')，输出 ‘script start'
+// 遇到 setTimeout 把 console.log('setTimeout') 放到 macrotask 队列中
+// 执行 aync1() 输出 ‘async1 start' 和 'async2' ,把 console.log('async1 end') 放到 micro 队列中
+// 执行到 promise ，输出 'promise1' ，把 console.log('promise2') 放到  micro 队列中
+// 执行 console.log('script end')，输出 ‘script end'
+// macrotask 执行完成会执行 microtask ，把 microtask quene 里面的 microtask 全部拿出来一次性执行完，所以会输出 'async1 end' 和 ‘promise2'
+// 开始新一轮的事件循环，去除执行一个 macrotask 执行，所以会输出 ‘setTimeout'
+// 原文链接：https://blog.csdn.net/MFWSCQ/article/details/105109727
+</script> -->
+<!-- Promise的简单使用 -->
+<!-- Promise对象有三种状态，他们分别是：
+pending: 等待中，或者进行中，表示还没有得到结果
+resolved(Fulfilled): 已经完成，表示得到了我们想要的结果，可以继续往下执行
+rejected: 也表示得到结果，但是由于结果并非我们所愿，因此拒绝执行
+这三种状态不受外界影响，而且状态只能从pending改变为resolved或者rejected，并且不可逆。
+在Promise对象的构造函数中，将一个函数作为第一个参数。
+而这个函数，就是用来处理Promise的状态变化。
+上面的resolve和reject都为一个函数，他们的作用分别是将状态修改为resolved和rejected。
+
+链接：https://www.jianshu.com/p/fe5f173276bd -->
+<!-- <script>
+    function fn(num) {
+    return new Promise(function(resolve, reject) {
+        if (typeof num == 'number') {
+            resolve();
+        } else {
+            reject();
+        }
+    }).then(function() {
+        console.log('参数是一个number值');
+    }, function() {
+        console.log('参数不是一个number值');
+    })
+}
+//Promise对象中的then方法，可以接收构造函数中处理的状态变化，并分别对应执行。
+//then方法有2个参数，第一个函数接收resolved状态的执行，第二个参数接收reject状态的执行。
+fn('hahha');//参数不是一个number值
+fn(1234);//参数是一个number值
+// then方法的执行结果也会返回一个Promise对象
+</script> -->
+<!-- <script>
+    function fn(num) {
+    return new Promise(function(resolve, reject) {
+        if (typeof num == 'number') {
+            resolve();
+        } else {
+            reject();
+        }
+    })
+    .then(function() {
+        console.log('参数是一个number值');
+    })
+    .then(null, function() {
+        console.log('参数不是一个number值');
+    })
+}
+// then(null, function() {}) 就等同于catch(function() {})
+fn('hahha');
+fn(1234);
+</script> -->
+<script>
+    var a = 20;
+    function foo() {
+        if (!a) {
+            a = 100;
+        }
+        var a = 10;
+        return a;
+    }
+    console.log(foo());
+</script>

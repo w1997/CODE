@@ -1,36 +1,43 @@
 import React, { Component } from 'react'
-import { Form, Input, Button, message,Icon} from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { Form, Input, Button, message, Icon } from 'antd';
 
 import './login.less'
-import { resLogin } from '../../api';
+import { resLogin } from '../../api/index';
 // import {Redirect} from 'react-router-dom'
 import memorySave from '../../utils/memorySave'
 import localstorageSave from '../../utils/localstorageSave'
-export default class Login extends Component {
-    onFinish = async values => {
-        //写ajax请求，拿数据
-        let{username,password}=values;
-        resLogin(username,password).then(response=>{
-            console.log('成功了',response.data)
-        }).catch(error=>{
-            console.log("失败了",error)
-        })
-        const response=await resLogin(username,password)
-        let res=response.data
-        if(res.status===0){
-            message.success("登录成功")
-            //把用户信息保存到内存中，但是一刷新页面，数据就会消失
-            memorySave.user =res.data
-            //把用户信息保存到硬盘上
-            localstorageSave.saveUser(res.data)
-            this.props.history.replace("./admin")
-        }else{
-            message.error(res.msg)
+ class Login extends Component {
+    handleSubmit = (event) => {
+        // 阻止事件的默认行为
+        event.preventDefault()
+        // 对所有表单字段进行检验
+    this.props.form.validateFields(async (err, values) => {
+        // 检验成功
+        if (!err) {
+          // console.log('提交登陆的ajax请求', values)
+          const {username, password} = values
+          const result = await resLogin(username, password)
+          // console.log('login()', result)
+          if(result.data.status === 0) {
+            // 提示登录成功
+            message.success('登录成功', 2)
+            // 保存用户登录信息
+            memorySave.user = result.data.data
+            localstorageSave.saveUser(result.data.data)
+            // 跳转到主页面
+            this.props.history.replace('/')
+  
+          } else {
+            // 登录失败, 提示错误
+            message.error(result.msg)
+          }
+        } else {
+          console.log('检验失败!')
         }
-
+      });
     };
     render() {
+        const { getFieldDecorator } = this.props.form;
         return (
             <div className="login">
                 <header>
@@ -40,48 +47,48 @@ export default class Login extends Component {
                     <h1>用户登录</h1>
                     {/* 引入的antDesign组件 */}
                     <Form
-                        name="normal_login"
                         className="login-form"
-                        initialValues={{
-                            remember: true,
-                        }}
-                        onFinish={this.onFinish}
+                        onSubmit={this.handleSubmit}
                     >
-                        <Form.Item
-                            name="username"
-                            rules={[
-                                {
-                                    // type:"string",
-                                    max:6,
-                                    min:4,
-                                    //正则表达式，验证用户名是有数字字母和下划线组成
-                                    pattern:/^[0-9a-zA-Z_]{1,}$/,
-                                    required: true,
-                                    message: '请输入正确的用户名由数字、字母和下划线组成',
-                                },
-                            ]}
-                        >
-                           <Input prefix={<Icon type="user" />} placeholder="Username" />
-                            {/* <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" /> */}
+                        <Form.Item >
+                            {
+                                getFieldDecorator('username', { // 配置对象: 属性名是特定的一些名称
+                                    // 声明式验证: 直接使用别人定义好的验证规则进行验证
+                                    rules: [
+                                        { required: true, whitespace: true, message: '用户名必须输入' },
+                                        { min: 4, message: '用户名至少4位' },
+                                        { max: 12, message: '用户名最多12位' },
+                                        { pattern: /^[a-zA-Z0-9_]+$/, message: '用户名必须是英文、数字或下划线组成' },
+                                    ],
+                                    initialValue: 'admin' //指定初始值
+                                })(
+                                    <Input
+                                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                        placeholder="用户名"
+                                    />
+                                )
+                            }
                         </Form.Item>
-                        <Form.Item
-                            name="password"
-                            rules={[
-                                {
-                                    type:"string",
-                                    max:10,
-                                    min:4,
-                                    required: true,
-                                    message: '请输入正确的密码',
-                                },
-                            ]}
-                        >
-                           {/*  <Input
-                                prefix={<LockOutlined className="site-form-item-icon" />}
-                                type="password"
-                                placeholder="Password"
-                            /> */}
-                            <Input prefix={<Icon type="lock" />} type="password" placeholder="Password"/>
+                        <Form.Item >
+                            {
+                                getFieldDecorator('password', {
+                                    rules: [
+                                        {
+                                            type: "string",
+                                            max: 10,
+                                            min: 4,
+                                            required: true,
+                                            message: '请输入正确的密码',
+                                        }
+                                    ]
+                                })(
+                                    <Input
+                                        prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                        type="password"
+                                        placeholder="密码"
+                                    />
+                                )
+                            }
                         </Form.Item>
                         <Form.Item>
                             <Button type="primary" htmlType="submit" className="login-form-button">
@@ -94,3 +101,4 @@ export default class Login extends Component {
         )
     }
 }
+export default Form.create()(Login)
