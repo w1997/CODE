@@ -161,19 +161,158 @@ fn(1234);
 </script> -->
 <!--====对比较运算符==的简单应用========= -->
 <script>
-   /*  var undefined;
-    console.log(undefined==null)
-    console.log(1==true)
-    console.log(2==true)
-    console.log(0==false)
-    console.log(0=="")
-    console.log(NaN==NaN)
-    console.log([]==false)
-    console.log([]==![]); */
+    /*  var undefined;
+     console.log(undefined==null)
+     console.log(1==true)
+     console.log(2==true)
+     console.log(0==false)
+     console.log(0=="")
+     console.log(NaN==NaN)
+     console.log([]==false)
+     console.log([]==![]); */
+    // 如果对字符串只是进行简单的+，就是字符串的拼接
+    // 其类型依旧是string
+    /* var f1="11"+2
+    console.log(f1)
+    console.log(typeof f1)
+    // 当字符串有-出现的时候，其类型也变成了number
+    // 如果字符串都是数字，会返回一个运算后的数字
+    // 如果不是就返回NaN，类型依旧是number
     var foo="11"+3-"1"
     console.log(foo)
-    var f1="11"+2-"2"
-    console.log(f1)
-    console.log(typeof "11")
-    console.log(typeof foo)
+    console.log(typeof foo) */
 </script>
+<!-- =====JS中join方法和split方法===== -->
+<script>
+    /* var stringArray=["this","is","baidu"];
+    // 方法join()是可以让数组的值拼接成字符串
+    // 如果直接使用join不写参数的话结果直接是
+    console.log(stringArray.join());//this,is,baidu
+    // 写一个空串，没有空格
+    console.log(stringArray.join(""))//thisisbaidu
+    //带有空格结果就是带有空格的形式
+    console.log(stringArray.join(" "))
+    // 在双引号中，可以写上任意的字符串
+    console.log(stringArray.join("=")) */
+    /* function comb(msg){
+        // 方法split把字符串通过-的方式分割成数组
+        var arr=msg.split("-");
+        console.log(arr)//["element", "by", "id"]
+        for(var i=0;i<arr.length;i++){
+            arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1,arr[i].length-1)
+        }
+        // charAt(index) 方法可返回指定位置的字符。
+        // index必需.表示字符串中某个位置的数字，即字符在字符串中的下标。
+        // toUpperCase() 方法用于把字符串转换为大写。
+        // stringObject.substr(start,length)
+        // substr() 方法可在字符串中抽取从 start 下标开始的指定数目的字符。
+        msg=arr.join("");
+        return msg
+    }
+ const result=comb("element-by-id")
+ console.log(result) */
+</script>
+<!-- ===替换掉需要更改的值，使用正则表达式，replace=== -->
+<script>
+    /* function escapeHtml(str){
+        return str.replace(/[<>"&]/g,function(match){
+            switch(match){
+                case "<":return "是个";
+                case ">":return "&gt;";
+                case "&":return "&amp;";
+                case "/":return '&quot;';
+            }
+        })
+    }
+   let result= escapeHtml("小明<希望>----<我们 & 喜欢&")
+    console.log(result) */
+</script>
+<!-- 用js实现随机选取10-100之间的10个数字，存入一个数组，并排序 -->
+<!-- <script>
+    // 这个是递归调用
+    function randomNub(aArray, len, min, max) {
+        // 判断max和min之前是否存在len个数
+        if (len >= (max - min)) {
+            return "超过" + min + "-" + max + "之间的个数范围" + (max - min - 1) + "个总数"
+        }
+        // 判断数组的长度
+        if (aArray.length >= len) {
+            // 将数组进行升序排列
+            // aArray.sort()的返回值是一个数组
+            // 放入函数，是一个升序排列的数组
+            aArray.sort(function (a, b) {
+                return a - b
+            })
+            // 返回这个数组
+            return aArray
+        }
+        // 拿到随机数
+        var nowNub = parseInt(Math.random() * (max - min - 1) + (min + 1));
+        // console.log(nowNub)
+        // console.log(aArray.length)
+        // 判断数组长度，如果长度等于0，就不执行for循环
+        for (var j = 0; j < aArray.length; j++) {
+            // 看看随机数是否和数组中之前的元素相同 
+            if (nowNub == aArray[j]) {
+                // 如果相同，就再次调用函数，注意调用的是整个函数
+                // 但是整个函数是有返回值的，所以调用这个函数就会返回一个aArray
+                randomNub(aArray, len, min, max)
+                // 如果不return的话，就会出现重复的数，并且数组的长度会增加
+                return
+            }
+        }
+        // push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。
+        // 注意： 新元素将添加在数组的末尾。
+        // 注意： 此方法改变数组的长度。
+        // 提示： 在数组起始位置添加元素请使用 unshift() 方法。
+        // 把拿到的随机数push到aArray数组中
+        aArray.push(nowNub);
+        randomNub(aArray, len, min, max);
+        return aArray
+    }
+    var arr = [];
+    var result = randomNub(arr, 10, 10, 100)
+    console.log(result)
+</script> -->
+<!--
+解析：
+    第一步：调用这个方法，需要传递4个参数，aArray一个数组，len是数组的长度，min是数组的最小值，max是数组中的最大值
+    第二步：判断所传数组的长度是否小于自己所选的max-min长度（小于说明自己传入的参数合适，需要传入新的参数）
+    第三步：判断数组长度，如果长度大于等于len就返回一个升序排列的数组
+    第四步：拿到随机数
+    第五步：判断数组长度，如果长度等于0，就不执行for循环；
+    如果长度不为0，判断拿到的随机数与数组中的数据是否有相同的，有的话就进行递归调用
+       -->
+<!-- <script>
+    var array1=["a","b","c"];
+    var barr=["d","e"];
+    // 合并两个数组
+    var carr=array1.concat(barr)
+    console.log(carr)
+    // 删除数组中的第二个元素
+    carr.splice(1,1)
+    console.log(carr)
+</script> -->
+<script>
+    // 提取URL中的各个GET参数(参数名和参数个数不确定)，
+    // 将其按key-value形式返回到一个json结构中
+    function serilizeUrl(url){
+        var urlObject={};
+        if(/\?/.test(url)){
+            var urlString=url.substring(url.indexOf("?")+1);
+            var urlArray=urlString.split("&");
+            for(var i=0,len=urlArray.length;i<len;i++){
+                var urlItem=urlArray[i];
+                var item=urlItem.split("=");
+                urlObject[item[0]]=item[1];
+            }
+            return urlObject
+        }
+        return null
+    }
+   let result= serilizeUrl("http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e")
+   console.log(result)
+//    {a: "1", b: "2", c: "", d: "xxx", e: undefined}
+</script>
+
+
